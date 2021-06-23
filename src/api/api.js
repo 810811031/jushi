@@ -1,0 +1,1 @@
+import { Get, Post, Delete, Put } from './methods'
