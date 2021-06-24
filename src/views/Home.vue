@@ -3,7 +3,9 @@
 		<!-- 背景图 -->
 		<full-page :options="options">
 			<div class="section" v-for="(item, index) in imgs" :key="index">
-                <img class="cover" :src="item" />
+                <div class="cover">
+					<img :class="[{ 'active': active }]" :src="item"  />
+				</div>
             </div>
 		</full-page>
 		<!-- 当前激活的点 -->
@@ -19,14 +21,14 @@
 			</div>
 		</div>
 		<!-- 菜单本体 -->
-		<NavDom :current="0" touch />
+		<NavDom :current="0" touch @change="handleChange" />
 		<!-- 产品中心 -->
 		<div class="product-center">
 			<span class="product-center-name">产品中心</span>
 			<span class="line"></span>
 		</div>
 		<!-- logo -->
-		<Logo />
+		<Logo :active="active" />
     </div>
 </template>
 
@@ -53,7 +55,8 @@ export default {
 				'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201209%2F19%2F110944ysa8m0c0omkhsk0p.jpg&refer=http%3A%2F%2Fattach.bbs.miui.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626963360&t=aa13f68b176a7a12216b635feec3d6b8',
 				'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201108%2F21%2F214740e47vyinyi4yoo8vv.jpg&refer=http%3A%2F%2Fattach.bbs.miui.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626963445&t=561900215819dcccc2ffaf0486c9d89c',
 			],
-			activeMenu: 0
+			activeMenu: 0,
+			active: false
 		}
 	},
 	methods: {
@@ -64,6 +67,9 @@ export default {
 		afterLoad(origin, destination, direction) {
 			this.activeIndex = destination.index
 		},
+		handleChange(val) {
+			this.active = val
+		}
 	}
 }
 </script>
@@ -75,7 +81,18 @@ export default {
 	.cover {
 		width: 100%;
 		height: 100%;
+		overflow: hidden;
+		img {
+			width: 100%;
+			height: calc(100% + 1rem);
+			transform: translateY(-.7rem);
+			transition: transform .2s linear;
+		}
+		.active {
+			transform: translateY(0);
+		}
 	}
+	
 	.product-center {
 		width: 1.19rem;
 		height: 1.82rem;

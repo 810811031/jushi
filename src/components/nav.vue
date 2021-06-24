@@ -2,8 +2,16 @@
     <div>
         <div :class="['menu', { 'menu-active': active, 'white': white }]">
             <div :class="['background']">
-                <img v-if="active" class="open-menu" @click="handleTrigger" :src="require('@/assets/images/close@2x.png')" />
-                <img v-else class="open-menu" @click="handleTrigger" :src="require('@/assets/images/menu@2x.png')" />
+                <transition 
+                    enter-active-class="animated bounceIn" 
+			        leave-active-class="animated bounceOut">
+                    <img v-if="active" class="open-menu" style="animation-duration: 200ms" @click="handleTrigger" :src="require('@/assets/images/close@2x.png')" />
+                </transition>
+                <transition 
+                    enter-active-class="animated bounceIn" 
+			        leave-active-class="animated bounceOut">
+                    <img v-if="!active" class="open-menu" style="animation-duration: 200ms;" @click="handleTrigger" :src="require('@/assets/images/menu@2x.png')" />
+                </transition>
             
                 <div class="harf aboutUs" v-if="active" 
                     ref="block"
@@ -26,13 +34,16 @@
                     <p class="normal call-us">打电话给我们</p>
                     <p class="phoneNo">199-5172-3459</p>
 
-                    <div class="shop-group">
-                        <img :src="require('@/assets/images/cat-shop@2x.png')" />
-                        <img :src="require('@/assets/images/jushi-shop@2x.png')" />
+                    <div :class="[{ 'inside-active-left': active }]">
+                        <div class="shop-group">
+                            <img :src="require('@/assets/images/cat-shop@2x.png')" />
+                            <img :src="require('@/assets/images/jushi-shop@2x.png')" />
+                        </div>
                     </div>
+                    <div :class="[{ 'inside-active-right': active }]">
+                        <div class="logo-group">
 
-                    <div class="logo-group">
-
+                        </div>
                     </div>
                 </div>
 
@@ -63,6 +74,9 @@
         </div>
         <!-- 点击空白处隐藏菜单 -->
         <div class="mask" v-show="active" @click="active = false"></div>
+        <template v-if="mask">
+            <div class="mask dark"  v-show="showDarkMash" @click="() => { showDarkMash = false; active = false }"></div>
+        </template>
     </div>
 </template>
 
@@ -84,11 +98,22 @@ export default {
         touch: {
             type: Boolean,
             default: false
+        },
+        mask: {
+            type: Boolean,
+            default: false
+        }
+    },
+    watch: {
+        active(val) {
+            this.$emit('change', val)
+            this.showDarkMash = val
         }
     },
     data() {
         return {
             active: false,				// menu state
+            showDarkMash: false,
             menus: [
 				{
 					title: '首页',
@@ -176,6 +201,7 @@ export default {
         right: 0;
         top: 0;
         z-index: 999;
+        cursor: pointer;
     }
     .background {
         width: 100%;
@@ -196,13 +222,12 @@ export default {
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
-                overflow-x: hidden;
+                padding-bottom: 5px;
             }
         }
         .aboutUs {
             width: 50%;
             height: 100%;
-            overflow: auto;
             padding-top: 1.3rem;
             padding-left: .47rem;
             padding-right: .73rem;
@@ -254,9 +279,32 @@ export default {
                 background-color: #ccc;
                 margin-top: .35rem;
             }
+            .inside-active-right {
+                animation: right .2s;
+                animation-delay: .2s;
+            }
+            .inside-active-left {
+                animation: left .2s;
+                animation-delay: .2s;
+            }
+            @keyframes right {
+                from {
+                    transform: translate(-6rem, -3rem);
+                     opacity: 0;
+                }
+                to {}
+            }
+            @keyframes left {
+                from {
+                    transform: translate(6rem, -3rem);
+                    opacity: 0;
+                }
+                to {}
+            }
         }
         .menu-button {
-            padding-left: 1rem;
+            width: calc(50% - .9rem);
+            margin-left: .9rem;
             position: relative;
             overflow-x: hidden;
             .block {
@@ -271,6 +319,7 @@ export default {
                     color: #656E7D;
                     line-height: .4rem;
                     position: relative;
+                    padding-left: .1rem;
                     span {
                         width: 110%;
                         height: .12rem;
@@ -335,8 +384,12 @@ export default {
     position: fixed;
     left: 0;
     top: 0;
+    z-index: 9999;
 }
 .white {
     background-color: #fff;
+}
+.dark {
+    background-color: rgba(11, 11, 11, 0.41);
 }
 </style>
