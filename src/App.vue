@@ -2,7 +2,7 @@
 	<div id="app">
 		<router-view/>
 		<transition name="loading"
-			enter-active-class="animated bounceInRight" 
+			enter-active-class="animated slideInRight" 
 			leave-active-class="animated bounceOutLeft">
 			<Loading v-if="loading.show" />
 		</transition>

@@ -1,6 +1,6 @@
 <template>
-    <div class="product">
-        <NavDom :current="1" white />
+    <div class="programme">
+        <NavDom :current="2" white />
         <Logo />
     </div>
 </template>
@@ -11,23 +11,18 @@ import NavDom from '@/components/nav'
 import Logo from '@/components/logo'
 
 export default {
-    name: 'PAGE_PRODUCT',
+    name: 'PAGE_PROGRAMME',
     mixins: [ mixin ],
     components: {
 		NavDom, Logo
 	},
-    data() {
-        return {
-            
-        }
-    },
 }
 </script>
 
 <style lang="scss" scoped>
-.product {
+.programme {
     width: 100%;
     height: 8rem;
-    background-color: #e8c;
+    background-color: #dd5;
 }
 </style>

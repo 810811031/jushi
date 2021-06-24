@@ -1,6 +1,6 @@
 <template>
-    <div class="product">
-        <NavDom :current="1" white />
+    <div class="cloudCenter">
+        <NavDom :current="4" white />
         <Logo />
     </div>
 </template>
@@ -11,7 +11,7 @@ import NavDom from '@/components/nav'
 import Logo from '@/components/logo'
 
 export default {
-    name: 'PAGE_PRODUCT',
+    name: 'PAGE_CLOUDCENTER',
     mixins: [ mixin ],
     components: {
 		NavDom, Logo
@@ -25,9 +25,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.product {
+.cloudCenter {
     width: 100%;
     height: 8rem;
-    background-color: #e8c;
+    background-color: #abc;
 }
 </style>

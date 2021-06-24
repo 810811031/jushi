@@ -13,8 +13,29 @@ const routes = [
 	{
 		path: '/product',
 		name: 'Product',
-		component: () => import(/* webpackChunkName: "Home" */ '../views/Product.vue')
+		component: () => import(/* webpackChunkName: "Product" */ '../views/Product.vue')
+	},
+	{
+		path: '/programme',
+		name: 'Programme',
+		component: () => import(/* webpackChunkName: "Programme" */ '../views/Programme.vue')
+	},
+	{
+		path: '/partner',
+		name: 'Partner',
+		component: () => import(/* webpackChunkName: "Partner" */ '../views/Partner.vue')
+	},
+	{
+		path: '/cloudCenter',
+		name: 'CloudCenter',
+		component: () => import(/* webpackChunkName: "CloudCenter" */ '../views/CloudCenter.vue')
+	},
+	{
+		path: '/company',
+		name: 'Company',
+		component: () => import(/* webpackChunkName: "Company" */ '../views/Company.vue')
 	}
+	
 ]
 
 const router = new VueRouter({
@@ -30,10 +51,7 @@ const router = new VueRouter({
  * @param { function } next
  */
 router.beforeEach((to, from, next) => {
-	$store.commit('setRouteAnimate', true)
-	setTimeout(() => {
-		next()
-	}, 100)
+	next()	
 })
 
 
