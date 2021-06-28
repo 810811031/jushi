@@ -1,9 +1,16 @@
 [
   {
+    "name": "product",
+    "path": "/product",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\product.vue",
+    "chunkName": "pages/product",
+    "_name": "_14ccf512"
+  },
+  {
     "name": "index",
     "path": "/",
-    "component": "/Users/luozhiyuan/Desktop/make The Money/office-web/pages/index.vue",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
-    "_name": "_b834aec2"
+    "_name": "_73f2584c"
   }
 ]

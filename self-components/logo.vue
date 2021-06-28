@@ -1,8 +1,8 @@
 <template>
-    <div>
-        <img v-if="dark" :src="require('@/assets/images/logo-grey@2x.png')" :class="['logo', { 'active': active }]" @click="handleBackHome" />
-        <img v-else :src="require('@/assets/images/logo@2x.png')" :class="['logo', { 'active': active }]" @click="handleBackHome" />
-    </div>
+    <nuxt-link to="/">
+        <img v-if="dark" :src="require('@/assets/images/logo-grey@2x.png')" :class="['logo', { 'active': active }]" />
+        <img v-else :src="require('@/assets/images/logo@2x.png')" :class="['logo', { 'active': active }]" />
+    </nuxt-link>
 </template>
 
 <script>
@@ -18,14 +18,6 @@ export default {
             default: false
         }
     },
-    methods: {
-        /**
-		 * 返回首页
-		 */
-		 handleBackHome() {
-			this.$router.push({ name: 'Home' })
-		},
-    }
 }
 </script>
 

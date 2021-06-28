@@ -13,8 +13,8 @@
                     <img v-if="!active" class="open-menu" style="animation-duration: 200ms;" @click="handleTrigger" :src="require('@/assets/images/menu@2x.png')" />
                 </transition>
             
-                <div class="harf aboutUs" v-if="active" 
-                    ref="block" style="overflow-y: auto"
+                <div class="harf aboutUs" v-show="active" 
+                    ref="block"
                     @touchmove="handleTouchMove" 
                     @touchstart="handleTouchStart">
                     <p class="title">关于我们</p>
@@ -47,14 +47,16 @@
                     </div>
                 </div>
 
-                <div class="harf menu-button" v-if="active">
+                <div class="harf menu-button" style="overflow-y: hidden" v-if="active">
                     <div class="inside">
-                        <div :class="['block', { 'active': current == index }]" 
-                            v-for="(item, index) in menus" :key="index"
-                            @click="handleTo(item.routeName)" >
-                            <div class="title">{{ item.title }}<span></span></div>
+                        <nuxt-link :to="item.routeName" :class="['block', { 'active': current == index }]" 
+                            v-for="(item, index) in menus" :key="index">
+                            <div class="title">
+                                {{ item.title }}
+                                <span></span>
+                            </div>
                             <div class="transform">{{ item.transform }}</div>
-                        </div>
+                        </nuxt-link>
                     </div>
                 </div>
             
@@ -74,16 +76,16 @@
         </div>
         <!-- 点击空白处隐藏菜单 -->
         <div class="mask" v-show="active" @click="active = false"></div>
-        <template v-if="mask">
+        <template v-show="mask">
             <div class="mask dark"  v-show="showDarkMash" @click="() => { showDarkMash = false; active = false }"></div>
         </template>
 
         <!-- 产品中心 -->
         <template v-if="!active">
-            <div class="product-center" @click="handleToProduct" v-if="product">
+            <nuxt-link class="product-center" to="/product" v-if="product">
                 <span class="product-center-name">产品中心</span>
                 <span class="line"></span>
-            </div>
+            </nuxt-link>
         </template>
 		
     </div>
@@ -132,32 +134,32 @@ export default {
 				{
 					title: '首页',
 					transform: 'Home',
-					routeName: 'Home'
+					routeName: '/'
 				},
 				{
 					title: '产品中心',
 					transform: 'Product list',
-					routeName: 'Product'
+					routeName: 'product'
 				},
 				{
 					title: '解决方案与应用',
 					transform: 'Equipment customization',
-					routeName: 'Programme'
+					routeName: 'programme'
 				},
 				{
 					title: '举视合伙人',
 					transform: 'Company profile',
-					routeName: 'Partner'
+					routeName: 'partner'
 				},
 				{
 					title: '云管理服务中心',
 					transform: 'Company profile',
-					routeName: 'CloudCenter'
+					routeName: 'cloudcenter'
 				},
 				{
 					title: '公司简介',
 					transform: 'Company profile',
-					routeName: 'Company'
+					routeName: 'company'
 				}
 			],
             touchStart: 0,
@@ -169,13 +171,6 @@ export default {
 		 */
 		handleTrigger() {
 			this.active = !this.active
-		},
-        /**
-		 * 转跳到
-		 * @param { string } name routeName
-		 */
-		handleTo(name) {
-            this.$store.commit('toPage', name)
 		},
         /**
          * 开始触摸
@@ -195,10 +190,8 @@ export default {
             if (l > 10) {
                 this.$refs.block.scrollTop = this.$refs.block.scrollTop + l
             }
-        },
-        handleToProduct() {
-            this.$store.commit('toPage', 'Product')
         }
+        
     }
 }
 </script>
@@ -212,7 +205,7 @@ export default {
     top: 0;
     z-index: 99999;
     box-sizing: border-box;
-    transition: all .3s ease-in-out;
+    transition: width .3s ease-in-out;
     .open-menu {
         width: .8rem;
         height: .8rem;
@@ -299,24 +292,20 @@ export default {
                 margin-top: .35rem;
             }
             .inside-active-right {
-                animation: right .2s;
-                animation-delay: .2s;
+                animation: right .8s;
             }
             .inside-active-left {
-                animation: left .2s;
-                animation-delay: .2s;
+                animation: left .8s;
             }
             @keyframes right {
                 from {
-                    transform: translate(-6rem, -3rem);
-                     opacity: 0;
+                    transform: translate(-6rem, -3rem) scale(.1, .1);
                 }
                 to {}
             }
             @keyframes left {
                 from {
-                    transform: translate(6rem, -3rem);
-                    opacity: 0;
+                    transform: translate(6rem, -3rem) scale(.1, .1);
                 }
                 to {}
             }
@@ -326,9 +315,13 @@ export default {
             margin-left: .9rem;
             position: relative;
             overflow-x: hidden;
+            animation: showMenu .4s;
             .block {
                 cursor: pointer;
                 margin-bottom: .4rem;
+                display: block;
+                color: #656E7D;
+                text-decoration: none;
                 &:last-child {
                     margin-bottom: 0;
                 }
@@ -337,6 +330,7 @@ export default {
                     font-size: .28rem;
                     color: #656E7D;
                     line-height: .4rem;
+                    font-weight: 600;
                     position: relative;
                     padding-left: .1rem;
                     span {
@@ -370,6 +364,11 @@ export default {
                 }
             }
         }
+        @keyframes showMenu {
+            0% { opacity: 0; }
+            70% { opacity: 0; }
+            100% { opacity: 1; }
+        }
     }
     .tool {
         position: fixed;
@@ -391,10 +390,10 @@ export default {
 }
 .menu-active {
     width: 57.29%;
-    background-color: #fff;
     .background {
         height: 100%;
         top: 0;
+        background-color: #fff;
     }
 }
 .mask {

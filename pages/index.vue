@@ -34,8 +34,8 @@
 <script>
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import 'swiper/swiper-bundle.css'
-import NavDom from '@/components/nav'
-import Logo from '@/components/logo'
+import NavDom from '@/self-components/nav'
+import Logo from '@/self-components/logo'
 
 export default {
 	name: 'PAGE_HOME',
@@ -64,8 +64,8 @@ export default {
 			activeIndex: 0,				// current full page index
 			imgs: [
 				require('@/assets/images/bg.png'),
-				'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201209%2F19%2F110944ysa8m0c0omkhsk0p.jpg&refer=http%3A%2F%2Fattach.bbs.miui.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626963360&t=aa13f68b176a7a12216b635feec3d6b8',
-				'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201108%2F21%2F214740e47vyinyi4yoo8vv.jpg&refer=http%3A%2F%2Fattach.bbs.miui.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626963445&t=561900215819dcccc2ffaf0486c9d89c',
+				require('@/assets/images/bg.png'),
+				require('@/assets/images/bg.png'),
 			],	
 			activeMenu: 0,
 			active: false,

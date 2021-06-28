@@ -1,14 +1,1 @@
-{
-  "Loading": {
-    "description": "Auto imported from components/loading.vue"
-  },
-  "Logo": {
-    "description": "Auto imported from components/logo.vue"
-  },
-  "Nav": {
-    "description": "Auto imported from components/nav.vue"
-  },
-  "ProductBox": {
-    "description": "Auto imported from components/product-box.vue"
-  }
-}
+{}

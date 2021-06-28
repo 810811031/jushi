@@ -1,6 +1,10 @@
 export default {
+	loading: {
+		color: 'blue',
+		height: '5px'
+	},
 	server: {
-		host: '192.168.3.135',
+		host: 'localhost',
 		port: 3000
 	},
 	// Global page headers: https://go.nuxtjs.dev/config-head
