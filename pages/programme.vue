@@ -1,39 +1,33 @@
 <template>
-    <div class="container" :style="{ height: height + 'px' }">
-        <NavDom :current="1" white mask />
+    <div class="container"  :style="{ height: height + 'px' }">
+        <NavDom :current="2" white mask />
         <Logo dark />
         <div class="content">
-            <div class="nav">
+            <div class="left">
                 <div class="inside">
-                    <p class="active">AC快充系列<span></span></p>
-                    <p>电单车系列<span></span></p>
-                    <p>欧标充电桩<span></span></p>
-                    <p>DC快充系列<span></span></p>
-                    <p>美标充电桩<span></span></p>
-                    <p>便携式系列<span></span></p>
-                    <p>所有分类<span></span></p>
+                    <p>企事业单位<span></span></p>
+                    <p>客运快充<span></span></p>
+                    <p>家庭用户<span></span></p>
+                    <p>社区运营<span></span></p>
+                    <p class="active">城市运营<span></span></p>
+                    <p>物流车<span></span></p>
                 </div>
             </div>
-            <div class="table">
-                <div class="inside">
-                    <Box animate='1' />
-                    <Box bg="#ABB2BF" color="white" />
-                    <Box />
-                    <Box bg="#656E7D" />
-                    <Box bg="#656E7D" animate='2' />
-                    <Box />
-                    <Box />
-                    <Box bg="#ABB2BF" color="white" />
-                    <Box />
-                    <Box animate />
-                    <Box bg="#ABB2BF" color="white" />
-                    <Box />
-                    <Box bg="#656E7D" />
-                    <Box bg="#656E7D" animate />
-                    <Box />
-                    <Box />
-                    <Box bg="#ABB2BF" color="white" />
-                    <Box />
+            <div class="right">
+                <div class="title">城市运营解决方案</div>
+                <div class="html">
+                    <p class="html-title">一. 方案介绍</p>
+                    <p class="html-content">
+                        适用于周围企业班车、旅游班车及物流城等大功率充电年车型，需大功率充电的场合来满足电动车辆的充电需求。
+                    </p>
+                    <p class="html-title">二. 适用范围</p>
+                    <p class="html-content">
+                        适用于周围企业班车、旅游班车及物流城等大功率充电年车型，需大功率充电的场合来满足电动车辆的充电需求。
+                    </p>
+                    <p class="html-title">三. 产品特点</p>
+                    <p class="html-content">
+                        适用于周围企业班车、旅游班车及物流城等大功率充电年车型，需大功率充电的场合来满足电动车辆的充电需求。
+                    </p>
                 </div>
             </div>
         </div>
@@ -43,14 +37,12 @@
 <script>
 import NavDom from '@/self-components/nav'
 import Logo from '@/self-components/logo'
-import Box from '@/self-components/product-box'
 
 export default {
-    name: 'PAGE_PRODUCT',
+    name: 'PAGE_PROGRAMME',
     components: {
 		NavDom,
         Logo,
-        Box
     },
     data() {
         return {
@@ -67,26 +59,20 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-	width: 100%;
+    width: 100%;
     height: 100%;
     position: relative;
     .content {
         width: 100%;
         height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: #fff;
-        padding-left: 6.2rem;
-        .nav {
-            width: 7rem;
+        .left {
+            width: 4.84rem;
             height: 100%;
             box-sizing: border-box;
+            border-right: 1px solid rgba(171, 178, 191, 0.3);
+            position: relative;
             display: inline-block;
             vertical-align: top;
-            position: fixed;
-            top: 0;
-            left: 0;
             .inside {
                 position: absolute;
                 top: 50%;
@@ -102,8 +88,8 @@ export default {
                     margin-bottom: .36rem;
                     box-sizing: border-box;
                     padding-left: .2rem;
-                    font-weight: bold;
                     cursor: pointer;
+                    font-weight: bold;
                     span {
                         display: inline-block;
                         width: 0;
@@ -133,16 +119,31 @@ export default {
                 }
             }
         }
-        .table {
-            width: calc(100% - .81rem);
+        .right {
+            width: calc(100% - 4.85rem);
             height: 100%;
-            vertical-align: top;
+            overflow: auto;
+            box-sizing: border-box;
+            padding-left: 1.15rem;
             display: inline-block;
-            .inside {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                flex-wrap: wrap;
+            vertical-align: top;
+            padding-top: 1.1rem;
+            .title {
+                font-size: .4rem;
+                line-height: .56rem;
+                color: #666F7E;
+                margin-bottom: .7rem;
+            }
+            .html {
+                font-size: .16rem;
+                line-height: .22rem;
+                color: #666F7E;
+                .html-title {
+                    margin-bottom: .2rem;
+                }
+                .html-content {
+                    margin-bottom: .6rem;
+                }
             }
         }
     }

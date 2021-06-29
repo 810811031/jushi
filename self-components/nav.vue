@@ -402,7 +402,7 @@ export default {
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 9999;
+    z-index: 99997;
 }
 .white {
     background-color: #fff;

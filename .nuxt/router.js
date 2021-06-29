@@ -4,7 +4,9 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
+const _621d89d2 = () => interopDefault(import('..\\pages\\cloudcenter.vue' /* webpackChunkName: "pages/cloudcenter" */))
 const _14ccf512 = () => interopDefault(import('..\\pages\\product.vue' /* webpackChunkName: "pages/product" */))
+const _3dc0d924 = () => interopDefault(import('..\\pages\\programme.vue' /* webpackChunkName: "pages/programme" */))
 const _73f2584c = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
@@ -19,9 +21,17 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
+    path: "/cloudcenter",
+    component: _621d89d2,
+    name: "cloudcenter"
+  }, {
     path: "/product",
     component: _14ccf512,
     name: "product"
+  }, {
+    path: "/programme",
+    component: _3dc0d924,
+    name: "programme"
   }, {
     path: "/",
     component: _73f2584c,

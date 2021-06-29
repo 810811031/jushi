@@ -1,10 +1,24 @@
 [
   {
+    "name": "cloudcenter",
+    "path": "/cloudcenter",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\cloudcenter.vue",
+    "chunkName": "pages/cloudcenter",
+    "_name": "_621d89d2"
+  },
+  {
     "name": "product",
     "path": "/product",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\product.vue",
     "chunkName": "pages/product",
     "_name": "_14ccf512"
+  },
+  {
+    "name": "programme",
+    "path": "/programme",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\programme.vue",
+    "chunkName": "pages/programme",
+    "_name": "_3dc0d924"
   },
   {
     "name": "index",

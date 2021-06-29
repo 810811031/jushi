@@ -60,7 +60,6 @@ export default {
 					}
 				}
 			},	
-			licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
 			activeIndex: 0,				// current full page index
 			imgs: [
 				require('@/assets/images/bg.png'),
