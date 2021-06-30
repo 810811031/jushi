@@ -21,6 +21,48 @@
     "_name": "_3dc0d924"
   },
   {
+    "name": "company-contantUs",
+    "path": "/company/contantUs",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\company\\\\contantUs.vue",
+    "chunkName": "pages/company/contantUs",
+    "_name": "_7461ea04"
+  },
+  {
+    "name": "company-honor",
+    "path": "/company/honor",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\company\\\\honor.vue",
+    "chunkName": "pages/company/honor",
+    "_name": "_7f1e2316"
+  },
+  {
+    "name": "company-introduction",
+    "path": "/company/introduction",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\company\\\\introduction.vue",
+    "chunkName": "pages/company/introduction",
+    "_name": "_643d7c42"
+  },
+  {
+    "name": "company-partner",
+    "path": "/company/partner",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\company\\\\partner.vue",
+    "chunkName": "pages/company/partner",
+    "_name": "_d51d21da"
+  },
+  {
+    "name": "company-recruit",
+    "path": "/company/recruit",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\company\\\\recruit.vue",
+    "chunkName": "pages/company/recruit",
+    "_name": "_ec5222ee"
+  },
+  {
+    "name": "company-seniority",
+    "path": "/company/seniority",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\company\\\\seniority.vue",
+    "chunkName": "pages/company/seniority",
+    "_name": "_e6ffb9ee"
+  },
+  {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\index.vue",

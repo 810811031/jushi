@@ -159,7 +159,7 @@ export default {
 				{
 					title: '公司简介',
 					transform: 'Company profile',
-					routeName: 'company'
+					routeName: 'company/introduction'
 				}
 			],
             touchStart: 0,
@@ -292,20 +292,20 @@ export default {
                 margin-top: .35rem;
             }
             .inside-active-right {
-                animation: right .8s;
+                animation: right .6s;
             }
             .inside-active-left {
                 animation: left .8s;
             }
             @keyframes right {
                 from {
-                    transform: translate(-6rem, -3rem) scale(.1, .1);
+                    transform: translate(-6rem, -3rem) scale(2, 2);
                 }
                 to {}
             }
             @keyframes left {
                 from {
-                    transform: translate(6rem, -3rem) scale(.1, .1);
+                    transform: translate(6rem, -3rem) scale(2, 2);
                 }
                 to {}
             }

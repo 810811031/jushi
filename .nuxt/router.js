@@ -7,6 +7,12 @@ import scrollBehavior from './router.scrollBehavior.js'
 const _621d89d2 = () => interopDefault(import('..\\pages\\cloudcenter.vue' /* webpackChunkName: "pages/cloudcenter" */))
 const _14ccf512 = () => interopDefault(import('..\\pages\\product.vue' /* webpackChunkName: "pages/product" */))
 const _3dc0d924 = () => interopDefault(import('..\\pages\\programme.vue' /* webpackChunkName: "pages/programme" */))
+const _7461ea04 = () => interopDefault(import('..\\pages\\company\\contantUs.vue' /* webpackChunkName: "pages/company/contantUs" */))
+const _7f1e2316 = () => interopDefault(import('..\\pages\\company\\honor.vue' /* webpackChunkName: "pages/company/honor" */))
+const _643d7c42 = () => interopDefault(import('..\\pages\\company\\introduction.vue' /* webpackChunkName: "pages/company/introduction" */))
+const _d51d21da = () => interopDefault(import('..\\pages\\company\\partner.vue' /* webpackChunkName: "pages/company/partner" */))
+const _ec5222ee = () => interopDefault(import('..\\pages\\company\\recruit.vue' /* webpackChunkName: "pages/company/recruit" */))
+const _e6ffb9ee = () => interopDefault(import('..\\pages\\company\\seniority.vue' /* webpackChunkName: "pages/company/seniority" */))
 const _73f2584c = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
@@ -32,6 +38,30 @@ export const routerOptions = {
     path: "/programme",
     component: _3dc0d924,
     name: "programme"
+  }, {
+    path: "/company/contantUs",
+    component: _7461ea04,
+    name: "company-contantUs"
+  }, {
+    path: "/company/honor",
+    component: _7f1e2316,
+    name: "company-honor"
+  }, {
+    path: "/company/introduction",
+    component: _643d7c42,
+    name: "company-introduction"
+  }, {
+    path: "/company/partner",
+    component: _d51d21da,
+    name: "company-partner"
+  }, {
+    path: "/company/recruit",
+    component: _ec5222ee,
+    name: "company-recruit"
+  }, {
+    path: "/company/seniority",
+    component: _e6ffb9ee,
+    name: "company-seniority"
   }, {
     path: "/",
     component: _73f2584c,
