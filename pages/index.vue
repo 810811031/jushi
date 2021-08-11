@@ -1,16 +1,16 @@
 <template>
     <div class="container"> 
 		<!-- 背景图 -->
-		<Swiper :options="swiperOption" class="swiper-container" id="swiper" :style="{ height: height + 'px' }">
-			<SwiperSlide v-for="(item, index) in imgs" :key="index" style="overflow: hidden">
+		<swiper :options="swiperOption" class="swiper-container" id="swiper" :style="{ height: height + 'px' }">
+			<swiper-slide v-for="(item, index) in imgs" :key="index" style="overflow: hidden">
 				<img :src="item" 
 					:style="{ 
 						width: width + 'px', 
 						height: `calc(${ height }px + 1rem)`, 
 						transition: 'transform .2s linear',
 						transform: active ? 'translateY(0)' : 'translateY(-.5rem)' }" />
-			</SwiperSlide>
-		</Swiper>
+			</swiper-slide>
+		</swiper>
 
 		<!-- 当前激活的点 -->
 		<div class="active-point">
@@ -32,20 +32,17 @@
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-import 'swiper/swiper-bundle.css'
 import NavDom from '@/self-components/nav'
 import Logo from '@/self-components/logo'
 
 export default {
 	name: 'PAGE_HOME',
 	components: {
-		Swiper,
-    	SwiperSlide,
 		NavDom,
 		Logo
 	},
 	data() {
+		const that = this
 		return {
 			swiperOption: {					// full page config
 				speed: 300,
@@ -55,8 +52,8 @@ export default {
 				eventsTarged: 'body',
 				direction : 'vertical',
 				on: {
-					slideChange: s => {
-						this.activeIndex = s.activeIndex
+					slideChange: function() {
+						that.activeIndex = this.activeIndex
 					}
 				}
 			},	

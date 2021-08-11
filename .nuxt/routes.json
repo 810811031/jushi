@@ -7,6 +7,13 @@
     "_name": "_621d89d2"
   },
   {
+    "name": "partner",
+    "path": "/partner",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\partner.vue",
+    "chunkName": "pages/partner",
+    "_name": "_eec9fe60"
+  },
+  {
     "name": "product",
     "path": "/product",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\product.vue",

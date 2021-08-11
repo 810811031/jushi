@@ -14,20 +14,9 @@
                 </div>
             </div>
             <div class="right">
-                <div class="title">城市运营解决方案6</div>
+                <div class="title alignCenter">合作伙伴</div>
                 <div class="html">
-                    <p class="html-title">三. 产品特点</p>
-                    <p class="html-content">
-                        适用于周围企业班车、旅游班车及物流城等大功率充电年车型，需大功率充电的场合来满足电动车辆的充电需求。
-                    </p>
-                    <p class="html-title">二. 适用范围</p>
-                    <p class="html-content">
-                        适用于周围企业班车、旅游班车及物流城等大功率充电年车型，需大功率充电的场合来满足电动车辆的充电需求。
-                    </p>
-                    <p class="html-title">一. 方案介绍</p>
-                    <p class="html-content">
-                        适用于周围企业班车、旅游班车及物流城等大功率充电年车型，需大功率充电的场合来满足电动车辆的充电需求。
-                    </p>
+                    <div id="chinaMap" :style="{width: '100%', height: '15rem'}"></div>
                 </div>
             </div>
         </div>
@@ -37,6 +26,8 @@
 <script>
 import NavDom from '@/self-components/nav'
 import Logo from '@/self-components/logo'
+import china from '@/assets/data/china.json'
+import * as echarts from 'echarts'
 
 export default {
     name: 'PAGE_CPMPANY_SENIORITY',
@@ -52,11 +43,65 @@ export default {
     },
     mounted() {
 		this.width = document.documentElement.clientWidth
-		this.height = document.documentElement.clientHeight
-	},
+        this.height = document.documentElement.clientHeight
+        this.drawregionCharts()
+    },
+    methods: {
+        drawregionCharts() {
+            const myChartContainer = document.getElementById('chinaMap')
+            const myChartChina = echarts.init(myChartContainer)
+            echarts.registerMap('china', china)
+            var optionMap = {
+                color:"#CAE6FF",
+                selectedMode: 'single',
+                series : [
+                    {
+                        name: '',
+                        type: 'map',
+                        mapType: 'china',
+                        itemStyle: {
+                            normal:{
+                                borderColor: 'rgba(0, 0, 0, 0.1)',
+                                borderWidth:1,
+                                borderColor:'#e1e1e1',
+                                areaStyle: {
+                                    color: '#red',//默认的地图板块颜色
+                                },
+                            },
+                            emphasis:{
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                shadowBlur: 20,
+                                borderWidth: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.15)'
+                            },
+                        },
+                        showLegendSymbol: true,
+                        label: {
+                            normal: {  
+                                show: true,
+                                textStyle: {
+                                    fontSize: 12,
+                                    color: '#666'
+                                }
+                            },
+                            emphasis: {
+                                show: true
+                            }
+                        }, 
+                        data:[]
+                    }
+                ]
+            }
+            myChartChina.setOption(optionMap);
+        }
+    }
 }
 </script>
 
 <style lang="scss" scoped>
 @import './common.scss';
+#chinaMap {
+    transform: translateY(-2rem);
+}
 </style>

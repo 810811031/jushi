@@ -139,22 +139,22 @@ export default {
 				{
 					title: '产品中心',
 					transform: 'Product list',
-					routeName: 'product'
+					routeName: '/product'
 				},
 				{
 					title: '解决方案与应用',
 					transform: 'Equipment customization',
-					routeName: 'programme'
+					routeName: '/programme'
 				},
 				{
 					title: '举视合伙人',
 					transform: 'Company profile',
-					routeName: 'partner'
+					routeName: '/partner'
 				},
 				{
 					title: '云管理服务中心',
 					transform: 'Company profile',
-					routeName: 'cloudcenter'
+					routeName: '/cloudcenter'
 				},
 				{
 					title: '公司简介',

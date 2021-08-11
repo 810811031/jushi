@@ -80,19 +80,22 @@
             }
         }
         .right {
-            width: calc(100% - 4.85rem);
+            width: calc(100% - 5.7rem);
             height: 100%;
             overflow: auto;
             box-sizing: border-box;
-            padding-left: 1.15rem;
             display: inline-block;
             vertical-align: top;
-            padding-top: 1.1rem;
+            padding-top: .8rem;
+            border-right: 1px solid #ccc;
+            animation: show .3s;
+            position: relative;
             .title {
                 font-size: .4rem;
                 line-height: .56rem;
                 color: #666F7E;
-                margin-bottom: .7rem;
+                margin-bottom: .4rem;
+                padding-left: 0 !important;
             }
             .html {
                 font-size: .16rem;
@@ -106,5 +109,15 @@
                 }
             }
         }
+        @keyframes show {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {}
+        }
+    }
+    .alignCenter {
+        text-align: center;
     }
 }
