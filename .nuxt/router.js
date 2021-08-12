@@ -7,6 +7,7 @@ import scrollBehavior from './router.scrollBehavior.js'
 const _621d89d2 = () => interopDefault(import('..\\pages\\cloudcenter.vue' /* webpackChunkName: "pages/cloudcenter" */))
 const _eec9fe60 = () => interopDefault(import('..\\pages\\partner.vue' /* webpackChunkName: "pages/partner" */))
 const _14ccf512 = () => interopDefault(import('..\\pages\\product.vue' /* webpackChunkName: "pages/product" */))
+const _76270628 = () => interopDefault(import('..\\pages\\productDetail.vue' /* webpackChunkName: "pages/productDetail" */))
 const _3dc0d924 = () => interopDefault(import('..\\pages\\programme.vue' /* webpackChunkName: "pages/programme" */))
 const _7461ea04 = () => interopDefault(import('..\\pages\\company\\contantUs.vue' /* webpackChunkName: "pages/company/contantUs" */))
 const _7f1e2316 = () => interopDefault(import('..\\pages\\company\\honor.vue' /* webpackChunkName: "pages/company/honor" */))
@@ -39,6 +40,10 @@ export const routerOptions = {
     path: "/product",
     component: _14ccf512,
     name: "product"
+  }, {
+    path: "/productDetail",
+    component: _76270628,
+    name: "productDetail"
   }, {
     path: "/programme",
     component: _3dc0d924,

@@ -21,6 +21,13 @@
     "_name": "_14ccf512"
   },
   {
+    "name": "productDetail",
+    "path": "/productDetail",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\productDetail.vue",
+    "chunkName": "pages/productDetail",
+    "_name": "_76270628"
+  },
+  {
     "name": "programme",
     "path": "/programme",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\programme.vue",

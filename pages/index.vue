@@ -3,12 +3,7 @@
 		<!-- 背景图 -->
 		<swiper :options="swiperOption" class="swiper-container" id="swiper" :style="{ height: height + 'px' }">
 			<swiper-slide v-for="(item, index) in imgs" :key="index" style="overflow: hidden">
-				<img :src="item" 
-					:style="{ 
-						width: width + 'px', 
-						height: `calc(${ height }px + 1rem)`, 
-						transition: 'transform .2s linear',
-						transform: active ? 'translateY(0)' : 'translateY(-.5rem)' }" />
+				
 			</swiper-slide>
 		</swiper>
 

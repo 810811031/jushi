@@ -1,17 +1,22 @@
 <template>
     <div :class="['box', { 'big': enter }]"
         @mouseover="handleChangeStyle(true)" 
-        @mouseleave="handleChangeStyle(false)">
-        <div class="arc-wrapper">
-            <div class="arc" ref="box" :style="{ 'background-color': bg }"></div>
-        </div>
-        <div class="content">
-            <p :class="['title', { 'white': bg }]">举视新能源</p>
-            <p :class="['name', { 'white': bg }]">120KW落地式直流充电桩</p>
-            <p class="type" :style="{ color: color }">JSDC120/750/WA/2/A/IE</p>
-            <img :class="['img', { 'animate1': animate == 1, 'animate2': animate == 2 }]" :src="require('@/assets/images/demo.png')" />
-        </div>
+        @mouseleave="handleChangeStyle(false)"
+    >
+        <nuxt-link 
+            :to="{ name: 'productDetail', query: { id: 1 } }" >
+            <div class="arc-wrapper">
+                <div class="arc" ref="box" :style="{ 'background-color': bg }"></div>
+            </div>
+            <div class="content">
+                <p :class="['title', { 'white': bg }]">举视新能源</p>
+                <p :class="['name', { 'white': bg }]">120KW落地式直流充电桩</p>
+                <p class="type" :style="{ color: color }">JSDC120/750/WA/2/A/IE</p>
+                <img :class="['img', { 'animate1': animate == 1, 'animate2': animate == 2 }]" :src="require('@/assets/images/demo.png')" />
+            </div>
+        </nuxt-link>
     </div>
+    
 </template>
 
 <script>
@@ -39,7 +44,10 @@ export default {
     methods: {
         handleChangeStyle(type) {
             this.enter = type
-        }
+        },
+        handleToDetail() {
+
+        },
     }
 }
 </script>
