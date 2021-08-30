@@ -58,10 +58,21 @@ export default {
             height: 0
         }
     },
+    created() {
+        this.getProducts()
+    },
     mounted() {
 		this.width = document.documentElement.clientWidth
 		this.height = document.documentElement.clientHeight
-	},
+    },
+    methods: {
+        getProducts() {
+            this.$axios.get('/program')
+                .then(res => {
+                    console.log(res)
+                })
+        }
+    }
 }
 </script>
 

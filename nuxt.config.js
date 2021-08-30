@@ -48,9 +48,22 @@ export default {
 	],
 
 	// Axios module configuration: https://go.nuxtjs.dev/config-axios
-	axios: {},
-
+	axios: {
+		proxy: true,
+		prefix: '/api',
+		credentials: true
+	},
+	proxy: {
+        '/api': {
+			target: 'http://www.sowellchina.com/website-api',
+			pathRewrite: {
+				'^/api': '/',
+				changeOrigin: true
+			}
+		}
+	},
 	// Build Configuration: https://go.nuxtjs.dev/config-build
 	build: {
+		vendor: ['axios']
 	}
 }

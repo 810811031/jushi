@@ -3,7 +3,7 @@
 		<!-- 背景图 -->
 		<swiper :options="swiperOption" class="swiper-container" id="swiper" :style="{ height: height + 'px' }">
 			<swiper-slide v-for="(item, index) in imgs" :key="index" style="overflow: hidden">
-				
+				<img :src="item" />
 			</swiper-slide>
 		</swiper>
 
@@ -58,11 +58,16 @@ export default {
 				require('@/assets/images/bg.png'),
 				require('@/assets/images/bg.png'),
 			],	
+			banner: [],
 			activeMenu: 0,
 			active: false,
 			height: 0,	
 			width: 0	
 		}
+	},
+	created() {
+		this.init()
+		this.getBanner()
 	},
 	mounted() {
 		this.width = document.documentElement.clientWidth
@@ -76,8 +81,29 @@ export default {
 		afterLoad(origin, destination, direction) {
 			this.activeIndex = destination.index
 		},
+		/**
+		 * 改变当前的选中状态
+		 */
 		handleChange(val) {
 			this.active = val
+		},
+		/**
+		 * 项目初始化
+		 */
+		init() {
+			this.$axios.get('/init')
+				.then(res => {
+					console.log(res)
+					const result = res.data.data
+					window.sessionStorage.setItem('initData', JSON.stringify(result))
+				})
+		},
+		getBanner() {
+			this.$axios.get('/banner')
+				.then(res => {
+					this.banner = res.data.data
+					console.log(res)
+				})
 		}
 	}
 
