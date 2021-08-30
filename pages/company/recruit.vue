@@ -20,16 +20,13 @@
                     举视新能源在全国设有八家分公司，拥有一家研发公司，一家工程公司，一家运营公司，为成为“充电服务运营商”全局谋划，重点布局。
                     在人才的选拔上，企业搭建人才流动的内部平台，营造内部人才市场，为员工畅通职业发展渠道。</p>
                     <div class="tabs">
-                        <div @click="handleSelectCompany(1)" ref="tab1" :class="['tab', { 'active': current == 1 }]">UI设计师</div>
-                        <div @click="handleSelectCompany(2)" ref="tab2" :class="['tab', { 'active': current == 2 }]">硬件工程师</div>
-                        <div @click="handleSelectCompany(3)" ref="tab3" :class="['tab', { 'active': current == 3 }]">总裁助理</div>
-                        <div @click="handleSelectCompany(4)" ref="tab4" :class="['tab', { 'active': current == 4 }]">生产经理</div>
+                        <div @click="handleSelectCompany(index + 1)"
+                            v-for="(item, index) in list" :key="index" 
+                            :ref="`tab${ index + 1 }`" :class="['tab', { 'active': current == index + 1 }]">{{ item.Title }}</div>
                     </div>
                     <div class="contantUs-content">
                         <div class="triangle" :style="{ left: current * 1.63 + (current - 1) * .39 - .9 + 'rem' }"></div>
-                        <p> 1、本科以上学历；</p>
-                        <p> 2、熟悉3DMAX，AI软件，PS，UE设计，动效设计，平面设计，会用各种工具PS AI UI界面设计，积极完成所有安排的美术相关的工作；</p>
-                        <p> 3、熟悉3DMAX，AI软件，PS，UE设计，动效设计，平面设计，会用各种工具PS AI UI界面设计，积极完成所有安排的美术相关的工作。</p>
+                        <div class="v-content" ref="content" v-if="list.length !== 0" v-html="list[current - 1].Txt"></div>
                     </div>
                 </div>
             </div>
@@ -51,8 +48,12 @@ export default {
         return {
             width: 0,
             height: 0,
-            current: 1
+            current: 1,
+            list: []
         }
+    },
+    created() {
+        this.getList()
     },
     mounted() {
 		this.width = document.documentElement.clientWidth
@@ -65,6 +66,16 @@ export default {
          */
         handleSelectCompany(index) {
             this.current = index
+        },
+        /**
+         * 获取招聘列表
+         */
+        getList() {
+            this.$axios.get('/offers')
+                .then(res => {
+                    const result = res.data.data
+                    this.list = result
+                })
         }
     }
 }
@@ -135,6 +146,9 @@ export default {
         color: #656E7D;
         font-size: .18rem;
         line-height: .3rem;
+    }
+    .v-content {
+        position: relative;
     }
 }
 </style>

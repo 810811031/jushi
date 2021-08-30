@@ -2,18 +2,18 @@
     <div class="container"> 
 		<!-- 背景图 -->
 		<swiper :options="swiperOption" class="swiper-container" id="swiper" :style="{ height: height + 'px' }">
-			<swiper-slide v-for="(item, index) in imgs" :key="index" style="overflow: hidden">
-				<img :src="item" />
+			<swiper-slide v-for="(item, index) in banners" :key="index" style="overflow: hidden">
+				<img :src="item.Src" :alt="item.Alt" style="width: 100%; height: 100%" />
 			</swiper-slide>
 		</swiper>
 
 		<!-- 当前激活的点 -->
 		<div class="active-point">
-			<div :class="['active-point-block', { 'last': index == (imgs.length - 1), 'active': activeIndex == index }]" v-for="(item, index) in imgs" :key="`point-${ index }`">
+			<div :class="['active-point-block', { 'last': index == (banners.length - 1), 'active': activeIndex == index }]" v-for="(item, index) in banners" :key="`point-${ index }`">
 				<span class="active-point-main">
 					<span v-show="activeIndex == index">{{ '0' + (index + 1) }}</span>
 				</span>
-				<template v-if="index !== (imgs.length - 1)">
+				<template v-if="index !== (banners.length - 1)">
 					<span class="active-point-normal"></span>
 					<span class="active-point-normal"></span>
 				</template>
@@ -23,18 +23,22 @@
 		<NavDom :current="0" touch product @change="handleChange" />
 		<!-- logo -->
 		<Logo :active="active" />
+		<FooterDom :item="result" :menu="menu" />
     </div>
 </template>
 
 <script>
 import NavDom from '@/self-components/nav'
 import Logo from '@/self-components/logo'
+import FooterDom from '@/self-components/footer'
+import axios from 'axios'
 
 export default {
 	name: 'PAGE_HOME',
 	components: {
 		NavDom,
-		Logo
+		Logo,
+		FooterDom
 	},
 	data() {
 		const that = this
@@ -53,25 +57,37 @@ export default {
 				}
 			},	
 			activeIndex: 0,				// current full page index
-			imgs: [
-				require('@/assets/images/bg.png'),
-				require('@/assets/images/bg.png'),
-				require('@/assets/images/bg.png'),
-			],	
-			banner: [],
 			activeMenu: 0,
 			active: false,
 			height: 0,	
-			width: 0	
+			width: 0,
 		}
 	},
-	created() {
-		this.init()
-		this.getBanner()
+	head () {
+        return {
+            title: this.result.Title,
+            meta: [
+                    { hid: 'description', name: 'description', content: this.result.SeoDescription },
+                    { hid: 'keywords', name: 'keywords', content: this.result.SeoKeyword },  
+                ]
+        }
+    },
+	async asyncData(app) {
+		let result = await app.$axios.get('/init')
+		let banners = await app.$axios.get('/banner')
+		let menu = await app.$axios.get('/menus')
+		menu = menu.data.data
+		result = result.data.data
+		banners = banners.data.data
+		banners.forEach(r => {
+            if (process.env.NODE_ENV == 'development') r.Src = '/api' + r.Src
+		})
+		console.log(menu)
+		return { result, banners, menu }
 	},
 	mounted() {
 		this.width = document.documentElement.clientWidth
-		this.height = document.documentElement.clientHeight
+		this.height = document.documentElement.clientHeight - window.font_size * .3
 	},
 	methods: {
 		/**
@@ -86,24 +102,6 @@ export default {
 		 */
 		handleChange(val) {
 			this.active = val
-		},
-		/**
-		 * 项目初始化
-		 */
-		init() {
-			this.$axios.get('/init')
-				.then(res => {
-					console.log(res)
-					const result = res.data.data
-					window.sessionStorage.setItem('initData', JSON.stringify(result))
-				})
-		},
-		getBanner() {
-			this.$axios.get('/banner')
-				.then(res => {
-					this.banner = res.data.data
-					console.log(res)
-				})
 		}
 	}
 

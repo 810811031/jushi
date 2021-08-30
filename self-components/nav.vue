@@ -62,7 +62,7 @@
             
             
             </div>
-            <ul class="tool" v-if="active || white">
+            <!-- <ul class="tool" v-if="active || white">
                 <li><img :src="require('@/assets/images/QQ-grey@2x.png')" /></li>
                 <li><img :src="require('@/assets/images/wechat-grey@2x.png')" /></li>
                 <li><img :src="require('@/assets/images/search-grey@2x.png')" /></li>
@@ -71,7 +71,7 @@
                 <li><img :src="require('@/assets/images/QQ@2x.png')" /></li>
                 <li><img :src="require('@/assets/images/wechat@2x.png')" /></li>
                 <li><img :src="require('@/assets/images/search@2x.png')" /></li>
-            </ul>
+            </ul> -->
             
         </div>
         <!-- 点击空白处隐藏菜单 -->
@@ -118,6 +118,12 @@ export default {
         product: {
             type: Boolean,
             default: false
+        },
+        menu: {
+            type: Array,
+            default: function () {
+                return []
+            }
         }
     },
     watch: {
@@ -144,7 +150,7 @@ export default {
 				{
 					title: '解决方案与应用',
 					transform: 'Equipment customization',
-					routeName: '/programme'
+					routeName: '/programme/1'
 				},
 				{
 					title: '举视合伙人',
@@ -159,11 +165,16 @@ export default {
 				{
 					title: '公司简介',
 					transform: 'Company profile',
-					routeName: 'company/introduction'
+					routeName: '/company/introduction'
 				}
 			],
             touchStart: 0,
         }
+    },
+    created() {
+        setTimeout(() => {
+            console.log(this.menu)
+        }, 1000)
     },
     methods: {
         /**
@@ -199,13 +210,15 @@ export default {
 <style lang="scss" scoped>
 .menu {
     width: .8rem;
-    height: 100%;
+    height: calc(100% - .3rem);
     position: fixed;
     right: 0;
     top: 0;
     z-index: 99999;
     box-sizing: border-box;
     transition: width .3s ease-in-out;
+    border-left: 1px solid rgba(255,255,255, .14);
+    background-color: rgba(255,255,255, .08);
     .open-menu {
         width: .8rem;
         height: .8rem;
@@ -221,8 +234,6 @@ export default {
         position: absolute;
         top: .8rem;
         left: 0;
-        border-left: 1px solid rgba(255,255,255, .14);
-        background-color: rgba(255,255,255, .08);
         .harf {
             width: 50%;
             height: 100%;
@@ -372,7 +383,7 @@ export default {
     }
     .tool {
         position: fixed;
-        bottom: 0;
+        bottom: .3rem;
         right: 0;
         li {
             list-style: none;

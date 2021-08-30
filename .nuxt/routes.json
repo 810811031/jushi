@@ -28,13 +28,6 @@
     "_name": "_76270628"
   },
   {
-    "name": "programme",
-    "path": "/programme",
-    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\programme.vue",
-    "chunkName": "pages/programme",
-    "_name": "_3dc0d924"
-  },
-  {
     "name": "company-contantUs",
     "path": "/company/contantUs",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\company\\\\contantUs.vue",
@@ -75,6 +68,20 @@
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\company\\\\seniority.vue",
     "chunkName": "pages/company/seniority",
     "_name": "_e6ffb9ee"
+  },
+  {
+    "name": "programme-programme",
+    "path": "/programme/programme",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\programme\\\\programme.vue",
+    "chunkName": "pages/programme/programme",
+    "_name": "_7416e3b0"
+  },
+  {
+    "name": "programme-id",
+    "path": "/programme/:id?",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\programme\\\\_id.vue",
+    "chunkName": "pages/programme/_id",
+    "_name": "_7b5cccc6"
   },
   {
     "name": "index",
