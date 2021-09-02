@@ -50,12 +50,12 @@
                 <div class="harf menu-button" style="overflow-y: hidden" v-if="active">
                     <div class="inside">
                         <nuxt-link :to="item.routeName" :class="['block', { 'active': current == index }]" 
-                            v-for="(item, index) in menus" :key="index">
+                            v-for="(item, index) in menu" :key="index">
                             <div class="title">
-                                {{ item.title }}
+                                {{ item.Title }}
                                 <span></span>
                             </div>
-                            <div class="transform">{{ item.transform }}</div>
+                            <div class="transform">{{ item.TitleEn }}</div>
                         </nuxt-link>
                     </div>
                 </div>
@@ -76,9 +76,9 @@
         </div>
         <!-- 点击空白处隐藏菜单 -->
         <div class="mask" v-show="active" @click="active = false"></div>
-        <template v-show="mask">
+        <div v-show="mask">
             <div class="mask dark"  v-show="showDarkMash" @click="() => { showDarkMash = false; active = false }"></div>
-        </template>
+        </div>
 
         <!-- 产品中心 -->
         <template v-if="!active">
@@ -172,9 +172,15 @@ export default {
         }
     },
     created() {
-        setTimeout(() => {
-            console.log(this.menu)
-        }, 1000)
+        this.menu.forEach(item => {
+            if (item.Title === '首页') item.routeName = '/'
+            else if (item.Title === '产品中心') item.routeName = '/product'
+            else if (item.Title === '解决方案与应用') item.routeName = '/programme/1' 
+            else if (item.Title === '举视合伙人') item.routeName = '/partner'
+            else if (item.Title === '云管理服务中心') item.routeName = '/cloudcenter'
+            else if (item.Title === '公司简介') item.routeName = '/company/introduction'
+            else item.routeName = '/custom?id=' + item.ID + '&title=' + item.Title
+        })
     },
     methods: {
         /**

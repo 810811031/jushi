@@ -20,10 +20,10 @@
 			</div>
 		</div>
 		<!-- 菜单本体 -->
-		<NavDom :current="0" touch product @change="handleChange" />
+		<NavDom :current="0" :menu="menu" touch product @change="handleChange" />
 		<!-- logo -->
 		<Logo :active="active" />
-		<FooterDom :item="result" :menu="menu" />
+		<FooterDom :item="result" />
     </div>
 </template>
 
@@ -31,7 +31,6 @@
 import NavDom from '@/self-components/nav'
 import Logo from '@/self-components/logo'
 import FooterDom from '@/self-components/footer'
-import axios from 'axios'
 
 export default {
 	name: 'PAGE_HOME',
