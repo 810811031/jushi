@@ -1,6 +1,6 @@
 <template>
     <div class="container"  :style="{ height: height + 'px' }">
-        <NavDom :current="2" white mask />
+        <NavDom :current="2" white mask :menu="menu" />
         <Logo dark />
         <div class="content">
             <div class="left">
@@ -41,16 +41,18 @@ export default {
         // 获取解决方案 并 获取图片
         let result = await app.$axios.get('/program')
         let init = await app.$axios.get('/init')
+        let menu = await app.$axios.get('/menus')
+		menu = menu.data.data
         init = init.data.data
         result = result.data.data
         result.forEach(r => {
-            if (process.env.NODE_ENV == 'development') r.Cover = '/api' + r.Cover
+            r.Cover = '/api' + r.Cover
         })
         const page = result[app.route.params.id - 1]
 
         // 设置头部信息
         app.app.head.title = page.Title
-        return { resultList: result, result: page, init }
+        return { resultList: result, result: page, init, menu }
     },
     head () {
         return {
@@ -71,6 +73,7 @@ export default {
     mounted() {
 		this.width = document.documentElement.clientWidth
         this.height = document.documentElement.clientHeight
+        this.currentMenu = 1
     },
     methods: {
         /**
@@ -157,6 +160,7 @@ export default {
             vertical-align: top;
             padding-top: 1.1rem;
             padding-bottom: 1rem;
+            animation: show .3s;
             .title {
                 font-size: .4rem;
                 line-height: .56rem;
@@ -184,6 +188,13 @@ export default {
                 .html-content {
                     margin-bottom: .6rem;
                 }
+            }
+            @keyframes show {
+                from {
+                    transform: translateY(30px);
+                    opacity: 0;
+                }
+                to {}
             }
         }
     }

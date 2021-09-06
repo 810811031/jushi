@@ -47,15 +47,15 @@
                     </div>
                 </div>
 
-                <div class="harf menu-button" style="overflow-y: hidden" v-if="active">
+                <div class="harf menu-button" v-if="active">
                     <div class="inside">
-                        <nuxt-link :to="item.routeName" :class="['block', { 'active': current == index }]" 
-                            v-for="(item, index) in menus" :key="index">
-                            <div class="title">
-                                {{ item.title }}
+                        <nuxt-link :to="item.routeName" onclick="return false" :class="['block', { 'active': currentNum == index }]" 
+                            v-for="(item, index) in menu" :key="index">
+                            <div class="title" @click="handleClick(index, $event)">
+                                {{ item.Title }}
                                 <span></span>
                             </div>
-                            <div class="transform">{{ item.transform }}</div>
+                            <div class="transform">{{ item.TitleEn }}</div>
                         </nuxt-link>
                     </div>
                 </div>
@@ -76,17 +76,17 @@
         </div>
         <!-- 点击空白处隐藏菜单 -->
         <div class="mask" v-show="active" @click="active = false"></div>
-        <template v-show="mask">
+        <div v-show="mask">
             <div class="mask dark"  v-show="showDarkMash" @click="() => { showDarkMash = false; active = false }"></div>
-        </template>
+        </div>
 
         <!-- 产品中心 -->
-        <template v-if="!active">
+        <div v-if="!active" @click="handleClick(1)">
             <nuxt-link class="product-center" to="/product" v-if="product">
                 <span class="product-center-name">产品中心</span>
                 <span class="line"></span>
             </nuxt-link>
-        </template>
+        </div>
 		
     </div>
 </template>
@@ -169,14 +169,31 @@ export default {
 				}
 			],
             touchStart: 0,
+            currentNum: 0,
+            worker: null
         }
     },
     created() {
-        setTimeout(() => {
-            console.log(this.menu)
-        }, 1000)
+        try {
+            this.currentNum = Number(sessionStorage.getItem('Num')) || 0
+        } catch (err) {
+            console.log(err)
+            this.currentNum = 0
+        }
+        this.menu.forEach(item => {
+            if (item.ID == 1) item.routeName = '/'
+            else if (item.ID == 2) item.routeName = '/product'
+            else if (item.ID == 3) item.routeName = '/programme/1' 
+            else if (item.ID == 4) item.routeName = '/partner'
+            else if (item.ID == 5) item.routeName = '/cloudcenter'
+            else if (item.ID == 6) item.routeName = '/company/introduction'
+            else item.routeName = '/custom?id=' + item.ID + '&title=' + item.Title
+        })
     },
     methods: {
+        handleClick(index, event) {
+                window.sessionStorage.setItem('Num', index)
+        },
         /**
 		 * 展开 或 收起菜单
 		 */
@@ -254,6 +271,8 @@ export default {
             padding-top: 1.3rem;
             padding-left: .47rem;
             padding-right: .73rem;
+            padding-bottom: .3rem;
+            overflow: auto;
             .title {
                 font-size: .24rem;
                 color: #656E7D;
@@ -417,6 +436,7 @@ export default {
 }
 .white {
     background-color: #fff;
+    border-left: 1px solid #e8e8e8;
 }
 .dark {
     background-color: rgba(11, 11, 11, 0.41);

@@ -5,16 +5,17 @@ import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
 const _621d89d2 = () => interopDefault(import('..\\pages\\cloudcenter.vue' /* webpackChunkName: "pages/cloudcenter" */))
+const _72a49a19 = () => interopDefault(import('..\\pages\\custom.vue' /* webpackChunkName: "pages/custom" */))
 const _eec9fe60 = () => interopDefault(import('..\\pages\\partner.vue' /* webpackChunkName: "pages/partner" */))
 const _14ccf512 = () => interopDefault(import('..\\pages\\product.vue' /* webpackChunkName: "pages/product" */))
-const _76270628 = () => interopDefault(import('..\\pages\\productDetail.vue' /* webpackChunkName: "pages/productDetail" */))
 const _7461ea04 = () => interopDefault(import('..\\pages\\company\\contantUs.vue' /* webpackChunkName: "pages/company/contantUs" */))
 const _7f1e2316 = () => interopDefault(import('..\\pages\\company\\honor.vue' /* webpackChunkName: "pages/company/honor" */))
 const _643d7c42 = () => interopDefault(import('..\\pages\\company\\introduction.vue' /* webpackChunkName: "pages/company/introduction" */))
 const _d51d21da = () => interopDefault(import('..\\pages\\company\\partner.vue' /* webpackChunkName: "pages/company/partner" */))
 const _ec5222ee = () => interopDefault(import('..\\pages\\company\\recruit.vue' /* webpackChunkName: "pages/company/recruit" */))
 const _e6ffb9ee = () => interopDefault(import('..\\pages\\company\\seniority.vue' /* webpackChunkName: "pages/company/seniority" */))
-const _7416e3b0 = () => interopDefault(import('..\\pages\\programme\\programme.vue' /* webpackChunkName: "pages/programme/programme" */))
+const _bded9740 = () => interopDefault(import('..\\pages\\customDetail\\_id.vue' /* webpackChunkName: "pages/customDetail/_id" */))
+const _639e2242 = () => interopDefault(import('..\\pages\\productDetail\\_id.vue' /* webpackChunkName: "pages/productDetail/_id" */))
 const _7b5cccc6 = () => interopDefault(import('..\\pages\\programme\\_id.vue' /* webpackChunkName: "pages/programme/_id" */))
 const _73f2584c = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -34,6 +35,10 @@ export const routerOptions = {
     component: _621d89d2,
     name: "cloudcenter"
   }, {
+    path: "/custom",
+    component: _72a49a19,
+    name: "custom"
+  }, {
     path: "/partner",
     component: _eec9fe60,
     name: "partner"
@@ -41,10 +46,6 @@ export const routerOptions = {
     path: "/product",
     component: _14ccf512,
     name: "product"
-  }, {
-    path: "/productDetail",
-    component: _76270628,
-    name: "productDetail"
   }, {
     path: "/company/contantUs",
     component: _7461ea04,
@@ -70,9 +71,13 @@ export const routerOptions = {
     component: _e6ffb9ee,
     name: "company-seniority"
   }, {
-    path: "/programme/programme",
-    component: _7416e3b0,
-    name: "programme-programme"
+    path: "/customDetail/:id?",
+    component: _bded9740,
+    name: "customDetail-id"
+  }, {
+    path: "/productDetail/:id?",
+    component: _639e2242,
+    name: "productDetail-id"
   }, {
     path: "/programme/:id?",
     component: _7b5cccc6,

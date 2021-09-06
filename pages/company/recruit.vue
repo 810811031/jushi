@@ -1,6 +1,6 @@
 <template>
     <div class="container"  :style="{ height: height + 'px' }">
-        <NavDom :current="5" white mask />
+        <NavDom :current="5" white mask :menu="menu" />
         <Logo dark />
         <div class="content">
             <div class="left">
@@ -31,18 +31,21 @@
                 </div>
             </div>
         </div>
+        <FooterDom :item="result" />
     </div>
 </template>
 
 <script>
 import NavDom from '@/self-components/nav'
 import Logo from '@/self-components/logo'
+import FooterDom from '@/self-components/footer'
 
 export default {
     name: 'PAGE_CPMPANY_INTRODUCTION',
     components: {
 		NavDom,
         Logo,
+        FooterDom
     },
     data() {
         return {
@@ -51,6 +54,13 @@ export default {
             current: 1,
             list: []
         }
+    },
+    async asyncData(app) {
+        let result = await app.$axios.get('/init')
+        let menu = await app.$axios.get('/menus')
+		menu = menu.data.data
+        result = result.data.data
+		return { result, menu }
     },
     created() {
         this.getList()
