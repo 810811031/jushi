@@ -3,130 +3,84 @@
     "name": "cloudcenter",
     "path": "/cloudcenter",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\cloudcenter.vue",
-    "chunkName": "pages/cloudcenter",
-    "_name": "_113babf0"
+    "chunkName": "pages/cloudcenter"
   },
   {
     "name": "custom",
     "path": "/custom",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\custom.vue",
-    "chunkName": "pages/custom",
-    "_name": "_20651d3b"
-  },
-  {
-    "name": "custom",
-    "path": "/custom",
-    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\custom.vue",
-    "chunkName": "pages/custom",
-    "_name": "_72a49a19"
+    "chunkName": "pages/custom"
   },
   {
     "name": "partner",
     "path": "/partner",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\partner.vue",
-    "chunkName": "pages/partner",
-    "_name": "_da2a3c24"
+    "chunkName": "pages/partner"
   },
   {
     "name": "product",
     "path": "/product",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\product.vue",
-    "chunkName": "pages/product",
-    "_name": "_002d32d6"
+    "chunkName": "pages/product"
   },
   {
-<<<<<<< HEAD
-    "name": "productDetail",
-    "path": "/productDetail",
-    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\productDetail.vue",
-    "chunkName": "pages/productDetail",
-    "_name": "_5375ce74"
-  },
-  {
-=======
->>>>>>> aec8caa4d726576970c0ae81360af3fe33f27e46
     "name": "company-contantUs",
     "path": "/company/contantUs",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\company\\\\contantUs.vue",
-    "chunkName": "pages/company/contantUs",
-    "_name": "_e56c29c0"
+    "chunkName": "pages/company/contantUs"
   },
   {
     "name": "company-honor",
     "path": "/company/honor",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\company\\\\honor.vue",
-    "chunkName": "pages/company/honor",
-    "_name": "_64152f97"
+    "chunkName": "pages/company/honor"
   },
   {
     "name": "company-introduction",
     "path": "/company/introduction",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\company\\\\introduction.vue",
-    "chunkName": "pages/company/introduction",
-    "_name": "_fbec5306"
+    "chunkName": "pages/company/introduction"
   },
   {
     "name": "company-partner",
     "path": "/company/partner",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\company\\\\partner.vue",
-    "chunkName": "pages/company/partner",
-    "_name": "_3dec2096"
+    "chunkName": "pages/company/partner"
   },
   {
     "name": "company-recruit",
     "path": "/company/recruit",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\company\\\\recruit.vue",
-    "chunkName": "pages/company/recruit",
-    "_name": "_552121aa"
+    "chunkName": "pages/company/recruit"
   },
   {
     "name": "company-seniority",
     "path": "/company/seniority",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\company\\\\seniority.vue",
-    "chunkName": "pages/company/seniority",
-    "_name": "_53fb032b"
-  },
-  {
-<<<<<<< HEAD
-    "name": "programme-programme",
-    "path": "/programme/programme",
-    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\programme\\\\programme.vue",
-    "chunkName": "pages/programme/programme",
-    "_name": "_cb90246c"
+    "chunkName": "pages/company/seniority"
   },
   {
     "name": "customDetail-id",
     "path": "/customDetail/:id?",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\customDetail\\\\_id.vue",
-    "chunkName": "pages/customDetail/_id",
-    "_name": "_6efe7004"
-=======
-    "name": "customDetail-id",
-    "path": "/customDetail/:id?",
-    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\customDetail\\\\_id.vue",
-    "chunkName": "pages/customDetail/_id",
-    "_name": "_bded9740"
+    "chunkName": "pages/customDetail/_id"
   },
   {
     "name": "productDetail-id",
     "path": "/productDetail/:id?",
-    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\productDetail\\\\_id.vue",
-    "chunkName": "pages/productDetail/_id",
-    "_name": "_639e2242"
->>>>>>> aec8caa4d726576970c0ae81360af3fe33f27e46
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\productDetail\\\\_id.vue",
+    "chunkName": "pages/productDetail/_id"
   },
   {
     "name": "programme-id",
     "path": "/programme/:id?",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\programme\\\\_id.vue",
-    "chunkName": "pages/programme/_id",
-    "_name": "_1f010de8"
+    "chunkName": "pages/programme/_id"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_26786478"
+    "chunkName": "pages/index"
   }
 ]

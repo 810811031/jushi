@@ -1,7 +1,7 @@
 <template>
     <div class="container"  :style="{ height: height + 'px' }">
         <NavDom :current="2" white mask :menu="menu" />
-        <Logo dark />
+        <Logo dark :item="init" v-if="result" />
         <div class="content">
             <div class="left">
                 <div class="inside">
@@ -151,7 +151,7 @@ export default {
             }
         }
         .right {
-            width: calc(100% - 4.85rem);
+            width: calc(100% - 5.7rem);
             height: 100%;
             overflow: auto;
             box-sizing: border-box;

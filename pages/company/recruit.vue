@@ -1,7 +1,7 @@
 <template>
     <div class="container"  :style="{ height: height + 'px' }">
         <NavDom :current="5" white mask :menu="menu" />
-        <Logo dark />
+        <Logo dark :item="result" />
         <div class="content">
             <div class="left">
                 <div class="inside">
@@ -19,10 +19,14 @@
                     <p class="detail">举视新能源坚持“以人为本”的人才发展思路，注重人才培养，拥有完善的人才培育体系，实现员工和企业的共同发展。
                     举视新能源在全国设有八家分公司，拥有一家研发公司，一家工程公司，一家运营公司，为成为“充电服务运营商”全局谋划，重点布局。
                     在人才的选拔上，企业搭建人才流动的内部平台，营造内部人才市场，为员工畅通职业发展渠道。</p>
-                    <div class="tabs">
-                        <div @click="handleSelectCompany(index + 1)"
-                            v-for="(item, index) in list" :key="index" 
-                            :ref="`tab${ index + 1 }`" :class="['tab', { 'active': current == index + 1 }]">{{ item.Title }}</div>
+                    <span class="_btn" @click="handleLeft"><img src="../../assets/images/left.png" /></span>
+                    <span class="_btn" @click="handleRight"><img src="../../assets/images/right.png" /></span>
+                    <div class="tabs" ref="tabs">
+                        <div class="tabs_wrapper">
+                             <div @click="handleSelectCompany(index + 1)"
+                                v-for="(item, index) in list" :key="index" 
+                                :ref="`tab${ index + 1 }`" :class="['tab', { 'active': current == index + 1 }]">{{ item.Title }}</div>
+                        </div>
                     </div>
                     <div class="contantUs-content">
                         <div class="triangle" :style="{ left: current * 1.63 + (current - 1) * .39 - .9 + 'rem' }"></div>
@@ -70,6 +74,12 @@ export default {
 		this.height = document.documentElement.clientHeight
 	},
     methods: {
+        handleLeft() {
+            this.$refs.tabs.scrollTo(this.$refs.tabs.offsetLeft + 10, 0)
+        },
+        handleRight() {
+            this.$refs.tabs.scrollTo(this.$refs.tabs.offsetLeft - 10, 0)
+        },
         /**
          * 选择当前的公司详细信息
          * @param { number } index 当前选中的公司详情下标
@@ -101,11 +111,17 @@ export default {
     margin: 0 auto;
 }
 .tabs {
-    width: 100%;
+    width: calc(100% - 3rem);
     height: .6rem;
+    margin: 0 auto;
     margin-top: .7rem;
     box-sizing: border-box;
-    padding-left: 1rem;
+    position: relative;
+    overflow-x: auto;
+    .tabs_wrapper {
+        width: auto;
+        white-space: nowrap;
+    }
     .tab {
         width: 1.6rem;
         height: .6rem;
@@ -120,6 +136,7 @@ export default {
         color: #fff;
         transition: all .2s linear;
         cursor: pointer;
+        margin-bottom: .2rem;
         &:hover {
             background: #399F62;
             opacity: 0.83;
@@ -128,6 +145,36 @@ export default {
     .active {
         background: #399F62;
         opacity: 0.83;
+    }
+}
+.html {
+    position: relative;
+    ._btn {
+        width: .3rem;
+        height: .6rem;
+        background: #399F62;
+        position: absolute;
+        display: inline-block;
+        top: 1.58rem;
+        opacity: 0.29;
+        border-radius: .04rem;
+        cursor: pointer;
+        &:hover {
+            opacity: .5;
+        }
+        &:nth-of-type(1) {
+            left: 1rem;
+        }
+        &:nth-of-type(2) {
+            right: 1rem;
+        }
+        img {
+            width: .3rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     }
 }
 .contantUs-content {
@@ -141,17 +188,17 @@ export default {
     border-radius: .04rem;
     padding: 0 .5rem;
     padding-top: .5rem;
-    .triangle {
-        width: 0;
-        height: 0;
-        position: absolute;
-        top: -.1rem;
-        border-top: none;
-        border-left: .1rem solid transparent;
-        border-right: .1rem solid transparent;
-        border-bottom: .1rem solid #E6F5F2;
-        transition: left .2s;
-    }
+    // .triangle {
+    //     width: 0;
+    //     height: 0;
+    //     position: absolute;
+    //     top: -.1rem;
+    //     border-top: none;
+    //     border-left: .1rem solid transparent;
+    //     border-right: .1rem solid transparent;
+    //     border-bottom: .1rem solid #E6F5F2;
+    //     transition: left .2s;
+    // }
     p {
         color: #656E7D;
         font-size: .18rem;

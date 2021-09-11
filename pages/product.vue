@@ -1,7 +1,7 @@
 <template>
     <div class="container" :style="{ height: height + 'px' }">
         <NavDom :current="1" white mask :menu="menu" />
-        <Logo dark />
+        <Logo dark  :item="result" />
         <div class="content">
             <div class="nav">
                 <div class="inside">

@@ -1,11 +1,12 @@
 <template>
     <div class="container" :style="{ height: height + 'px' }">
         <NavDom :current="3" white mask :menu="menu" />
-        <Logo dark />
+        <Logo dark :item="result" />
         <div class="content">
             <div class="left">
                 <div class="inside">
                     <div class="title">{{ $route.query.title }}</div>
+                    <div class="descript">{{ txt }}</div>
                 </div>
             </div>
             <div class="right">
@@ -43,17 +44,21 @@ export default {
         let menu = await app.$axios.get('/menus')
 		menu = menu.data.data
         let current = null
+        let txt = ''
 		result = result.data.data
         news = news.data.data
         news.forEach(item => {
             item.Cover = '/api' + item.Cover
             if (item.ID == app.route.params.id) current = item
         })
-		return { result, news, current, menu }
+        menu.forEach(item => {
+            if (item.ID == app.route.query.menuId) txt = item.Txt
+        })
+		return { result, news, current, menu, txt }
 	},
     head () {
         return {
-            title: this.current.Title,
+            title: this.$route.query.title,
             meta: [
                     { hid: 'description', name: 'description', content: this.current.SeoDescription },
                     { hid: 'keywords', name: 'keywords', content: this.current.SeoKeyword },  
@@ -98,6 +103,10 @@ export default {
                     color: #666F7E;
                     line-height: 56px;
                     margin-bottom: .2rem;
+                }
+                .descript {
+                    font-size: .18rem;
+                    color: #666F7E;
                 }
             }
         }

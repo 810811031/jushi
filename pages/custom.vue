@@ -1,11 +1,12 @@
 <template>
     <div class="container" :style="{ height: height + 'px' }">
         <NavDom :current="3" white mask :menu="menu" />
-        <Logo dark />
+        <Logo dark  :item="result" />
         <div class="content">
             <div class="left">
                 <div class="inside">
                     <div class="title">{{ $route.query.title }}</div>
+                    <div class="descript">{{ txt }}</div>
                 </div>
             </div>
             <div class="right">
@@ -45,13 +46,17 @@ export default {
 		let result = await app.$axios.get('/init')
         let news = await app.$axios.get('/cases?menuID=' + app.route.query.id)
         let menu = await app.$axios.get('/menus')
+        let txt = ''
 		menu = menu.data.data
 		result = result.data.data
         news = news.data.data
         news.forEach(item => {
             item.Cover = '/api' + item.Cover
         })
-		return { result, news, menu }
+        menu.forEach(item => {
+            if (item.ID == app.route.query.id) txt = item.Txt
+        })
+		return { result, news, menu, txt }
 	},
     head () {
         return {
@@ -96,6 +101,10 @@ export default {
                     line-height: 56px;
                     margin-bottom: .2rem;
                 }
+                .descript {
+                    font-size: .18rem;
+                    color: #666F7E;
+                }
             }
         }
         .right {
@@ -117,11 +126,16 @@ export default {
                 margin-right: 1.2rem;
                 margin-bottom: .7rem;
                 cursor: pointer;
+                text-decoration: none;
+                transition: all .2s linear;
+                border: 1px solid #e8e8e8;
+                vertical-align: top;
                 &:nth-of-type(3n) {
                     margin-right: 0;
                 }
                 &:hover {
                     box-shadow: 0px .02rem .21rem 0px rgba(64, 70, 80, 0.25);
+                    border: none;
                 }
                 .img {
                     width: 100%;
@@ -130,6 +144,7 @@ export default {
                     position: relative;
                     img {
                         width: 100%;
+                        height: 100%;
                         position:absolute;
                         top: 50%;
                         left: 50%;

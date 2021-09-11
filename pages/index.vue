@@ -22,7 +22,7 @@
 		<!-- 菜单本体 -->
 		<NavDom :current="0" touch product @change="handleChange" :menu="menu"  />
 		<!-- logo -->
-		<Logo :active="active" />
+		<Logo :active="active" :item="result" />
 		<FooterDom :item="result" />
     </div>
 </template>

@@ -12,7 +12,7 @@ export default {
 	head: {
 			title: 'office',
 			htmlAttrs: {
-				lang: 'en'
+				lang: ''
 			},
 		meta: [
 			{ charset: 'utf-8' },

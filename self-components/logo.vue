@@ -1,8 +1,8 @@
 <template>
-    <div @click="handleClick">
+    <div v-if="item">
         <nuxt-link to="/">
-            <img v-if="dark" :src="require('@/assets/images/logo-grey@2x.png')" :class="['logo', { 'active': active }]" />
-            <img v-else :src="require('@/assets/images/logo@2x.png')" :class="['logo', { 'active': active }]" />
+            <img :data-type="JSON.stringify(item)" v-if="dark" @click="handleClick" :src="`/api${ item.LogoDark }`" :class="['logo', { 'active': active }]" />
+            <img data-type="light" v-else @click="handleClick" :src="`/api${ item.LogoLight }`" :class="['logo', { 'active': active }]" />
         </nuxt-link>
     </div>
 </template>
@@ -18,6 +18,12 @@ export default {
         active: {
             type: Boolean,
             default: false
+        },
+        item: {
+            type: Object,
+            default: function () {
+                return {}
+            }
         }
     },
     methods: {

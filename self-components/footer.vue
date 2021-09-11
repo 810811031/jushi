@@ -1,6 +1,7 @@
 <template>
     <div class="footer-wrapper">
-        <a href="https://beian.miit.gov.cn/#/Integrated/index" target="view_window">{{ item.Footer }} {{ item.ICP }}</a>
+        {{ item.Footer }} 
+        <a href="https://beian.miit.gov.cn/#/Integrated/index" target="view_window"> {{ item.ICP }}</a>
     </div>
 </template>
 

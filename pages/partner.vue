@@ -1,7 +1,7 @@
 <template>
     <div class="container" :style="{ height: height + 'px' }">
         <NavDom :current="3" white mask :menu="menu" />
-        <Logo dark />
+        <Logo dark  :item="result" />
         <div class="content">
             <div class="left">
                 <div class="inside">
@@ -15,9 +15,9 @@
                 <div class="subtitle">通过成本运算，模拟后期收益，其他描述文案</div>
                 <div class="input-group">
                     <div class="input" @click="handleSelectInput(index)" v-for="(item, index) in inputGroups" :key="index">
-                        <div class="tip">{{ item.title }}</div>
+                        <div class="tip"><span>{{ item.title }}</span></div>
                         <input type="text" v-model="item.value" :ref="`input${ index }`" placeholder="请输入" />
-                        <div class="unit">{{ item.unit }}</div>
+                        <div class="unit"><span>{{ item.unit }}</span></div>
                     </div>
                     <div class="input last">
                         <p class="descript">* 请填写完整后查看收益</p>
@@ -285,8 +285,10 @@ export default {
             height: 100%;
             box-sizing: border-box;
             padding: .55rem;
+            padding-bottom: .8rem;
             padding-right: .55rem; 
             display: inline-block;
+            overflow: auto;
             vertical-align: top;
             .title {
                 font-size: .3rem;
@@ -312,17 +314,27 @@ export default {
                     background-color: #EDEFF1;
                     margin-bottom: .2rem;
                     transition: all .2s linear;
+                    display: inline-flex;
+                    vertical-align: top;
                     &:hover {
                         box-shadow: 0 0 8px rgba(0,0,0,.3);
                     }
                     .tip {
-                        width: 1.25rem;
-                        color: #303133;
-                        font-size: .16rem;
+                        width: .7rem;
+                        height: .5rem;
                         display: inline-block;
+                        vertical-align: top;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        span {
+                            color: #303133;
+                            font-size: .16rem;
+                            line-height: .20rem;
+                        }
                     }
                     input {
-                        width: 1.2rem;
+                        width: 1.8rem;
                         font-size: .18rem;
                         color: #56AB79;
                         text-align: right;
@@ -330,6 +342,7 @@ export default {
                         background-color: #EDEFF1;
                         border: none;
                         outline: none;
+                        display: inline-block;
                         &::placeholder {
                             color: #56AB79;
                             font-size: .14rem;
@@ -337,10 +350,16 @@ export default {
                     }
                     .unit {
                         width: .55rem;
-                        color: #303133;
-                        font-size: .16rem;
-                        display: inline-block;
-                        text-align: center;
+                        height: .5rem;
+                        display: inline-flex;
+                        justify-content: center;
+                        align-items: center;    
+                        text-align: center;                    
+                        span {
+                            color: #303133;
+                            font-size: .16rem;
+                            line-height: .2rem;
+                        }
                     }
                     .descript {
                         font-size: .14rem;

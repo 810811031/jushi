@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="harf menu-button" v-if="active">
-                    <div class="inside">
+                    <div class="inside" :style="{ maxHeight: height + 'px' }">
                         <nuxt-link :to="item.routeName" onclick="return false" :class="['block', { 'active': currentNum == index }]" 
                             v-for="(item, index) in menu" :key="index">
                             <div class="title" @click="handleClick(index, $event)">
@@ -132,10 +132,14 @@ export default {
             this.showDarkMash = val
         }
     },
+    mounted() {
+		this.height = document.documentElement.clientHeight - 80
+    },
     data() {
         return {
             active: false,				// menu state
             showDarkMash: false,
+            height: 0,
             menus: [
 				{
 					title: '首页',
@@ -259,6 +263,7 @@ export default {
             box-sizing: border-box;
             .inside {
                 width: 50%;
+                padding-bottom: .4rem;
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
