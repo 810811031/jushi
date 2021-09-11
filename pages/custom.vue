@@ -1,6 +1,6 @@
 <template>
     <div class="container" :style="{ height: height + 'px' }">
-        <NavDom :current="3" white mask />
+        <NavDom :current="3" white mask :menu="menu" />
         <Logo dark />
         <div class="content">
             <div class="left">
@@ -44,12 +44,14 @@ export default {
     async asyncData(app) {
 		let result = await app.$axios.get('/init')
         let news = await app.$axios.get('/cases?menuID=' + app.route.query.id)
+        let menu = await app.$axios.get('/menus')
+		menu = menu.data.data
 		result = result.data.data
         news = news.data.data
         news.forEach(item => {
-            if (process.env.NODE_ENV == 'development') item.Cover = '/api' + item.Cover
+            item.Cover = '/api' + item.Cover
         })
-		return { result, news }
+		return { result, news, menu }
 	},
     head () {
         return {
@@ -104,6 +106,7 @@ export default {
             display: inline-block;
             vertical-align: top;
             overflow-y: auto;
+            animation: show .3s;
             .block {
                 width: 3.2rem;
                 height: 3.25rem;
@@ -148,6 +151,13 @@ export default {
                         text-decoration: none;
                     }
                 }
+            }
+            @keyframes show {
+                from {
+                    transform: translateY(-30px);
+                    opacity: 0;
+                }
+                to {}
             }
         }
     }

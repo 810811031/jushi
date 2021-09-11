@@ -14,6 +14,13 @@
     "_name": "_20651d3b"
   },
   {
+    "name": "custom",
+    "path": "/custom",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\custom.vue",
+    "chunkName": "pages/custom",
+    "_name": "_72a49a19"
+  },
+  {
     "name": "partner",
     "path": "/partner",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\partner.vue",
@@ -28,6 +35,7 @@
     "_name": "_002d32d6"
   },
   {
+<<<<<<< HEAD
     "name": "productDetail",
     "path": "/productDetail",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\productDetail.vue",
@@ -35,6 +43,8 @@
     "_name": "_5375ce74"
   },
   {
+=======
+>>>>>>> aec8caa4d726576970c0ae81360af3fe33f27e46
     "name": "company-contantUs",
     "path": "/company/contantUs",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\company\\\\contantUs.vue",
@@ -77,6 +87,7 @@
     "_name": "_53fb032b"
   },
   {
+<<<<<<< HEAD
     "name": "programme-programme",
     "path": "/programme/programme",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\programme\\\\programme.vue",
@@ -89,6 +100,20 @@
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\customDetail\\\\_id.vue",
     "chunkName": "pages/customDetail/_id",
     "_name": "_6efe7004"
+=======
+    "name": "customDetail-id",
+    "path": "/customDetail/:id?",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\customDetail\\\\_id.vue",
+    "chunkName": "pages/customDetail/_id",
+    "_name": "_bded9740"
+  },
+  {
+    "name": "productDetail-id",
+    "path": "/productDetail/:id?",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\productDetail\\\\_id.vue",
+    "chunkName": "pages/productDetail/_id",
+    "_name": "_639e2242"
+>>>>>>> aec8caa4d726576970c0ae81360af3fe33f27e46
   },
   {
     "name": "programme-id",

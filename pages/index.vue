@@ -20,7 +20,7 @@
 			</div>
 		</div>
 		<!-- 菜单本体 -->
-		<NavDom :current="0" :menu="menu" touch product @change="handleChange" />
+		<NavDom :current="0" touch product @change="handleChange" :menu="menu"  />
 		<!-- logo -->
 		<Logo :active="active" />
 		<FooterDom :item="result" />
@@ -79,9 +79,8 @@ export default {
 		result = result.data.data
 		banners = banners.data.data
 		banners.forEach(r => {
-            if (process.env.NODE_ENV == 'development') r.Src = '/api' + r.Src
+            r.Src = '/api' + r.Src
 		})
-		console.log(menu)
 		return { result, banners, menu }
 	},
 	mounted() {

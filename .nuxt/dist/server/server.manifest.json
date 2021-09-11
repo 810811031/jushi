@@ -1,0 +1,37 @@
+{
+  "entry": "server.js",
+  "files": {
+    "pages/cloudcenter.js": "pages/cloudcenter.js",
+    "pages/company/contantUs.js": "pages/company/contantUs.js",
+    "pages/company/honor.js": "pages/company/honor.js",
+    "pages/company/introduction.js": "pages/company/introduction.js",
+    "pages/company/partner.js": "pages/company/partner.js",
+    "pages/company/recruit.js": "pages/company/recruit.js",
+    "pages/company/seniority.js": "pages/company/seniority.js",
+    "pages/custom.js": "pages/custom.js",
+    "pages/customDetail/_id.js": "pages/customDetail/_id.js",
+    "pages/index.js": "pages/index.js",
+    "pages/partner.js": "pages/partner.js",
+    "pages/product.js": "pages/product.js",
+    "pages/productDetail/_id.js": "pages/productDetail/_id.js",
+    "pages/programme/_id.js": "pages/programme/_id.js",
+    "server.js": "server.js"
+  },
+  "maps": {
+    "pages/cloudcenter.js": "pages/cloudcenter.js.map",
+    "pages/company/contantUs.js": "pages/company/contantUs.js.map",
+    "pages/company/honor.js": "pages/company/honor.js.map",
+    "pages/company/introduction.js": "pages/company/introduction.js.map",
+    "pages/company/partner.js": "pages/company/partner.js.map",
+    "pages/company/recruit.js": "pages/company/recruit.js.map",
+    "pages/company/seniority.js": "pages/company/seniority.js.map",
+    "pages/custom.js": "pages/custom.js.map",
+    "pages/customDetail/_id.js": "pages/customDetail/_id.js.map",
+    "pages/index.js": "pages/index.js.map",
+    "pages/partner.js": "pages/partner.js.map",
+    "pages/product.js": "pages/product.js.map",
+    "pages/productDetail/_id.js": "pages/productDetail/_id.js.map",
+    "pages/programme/_id.js": "pages/programme/_id.js.map",
+    "server.js": "server.js.map"
+  }
+}

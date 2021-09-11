@@ -1,6 +1,6 @@
 <template>
     <div class="container"  :style="{ height: height + 'px' }">
-        <!-- <NavDom :current="5" white mask /> -->
+        <NavDom :current="5" white mask :menu="menu" />
         <Logo dark />
         <div class="content">
             <div class="left">
@@ -19,49 +19,9 @@
                     <div class="sub-title">公司口号文案巴拉巴拉巴拉巴啦巴拉巴拉</div>
                     <div class="__swiper__wrapper__">
                         <swiper class="swiper-container" id="swiper" :options="swiperOptions" ref="mySwiper">
-                            <swiper-slide>
-                                <div class="block">
-                                    1
-                                </div>
-                            </swiper-slide>
-                            <swiper-slide>
-                                <div class="block">
-                                    2
-                                </div>
-                            </swiper-slide>
-                            <swiper-slide>
-                                <div class="block">
-                                    3
-                                </div>
-                            </swiper-slide>
-                            <swiper-slide>
-                                <div class="block">
-                                    4
-                                </div>
-                            </swiper-slide>
-                            <swiper-slide>
-                                <div class="block">
-                                    5
-                                </div>
-                            </swiper-slide>
-                            <swiper-slide>
-                                <div class="block">
-                                    6
-                                </div>
-                            </swiper-slide>
-                            <swiper-slide>
-                                <div class="block">
-                                    7
-                                </div>
-                            </swiper-slide>
-                            <swiper-slide>
-                                <div class="block">
-                                    8
-                                </div>
-                            </swiper-slide>
-                            <swiper-slide>
-                                <div class="block">
-                                    9
+                            <swiper-slide v-for="(item, index) in files" :key="index">
+                                <div class="block"  @click="handleClick">
+                                    <img :src="item.src" style="width: 100%; height: 100%;" />
                                 </div>
                             </swiper-slide>
                         </swiper>
@@ -69,30 +29,36 @@
                     </div>
                     <div class="title alignCenter">资质文件</div>
                     <div class="image-wrapper">
-                        <div class="block" v-for="(item, index) in files" :key="index">
-                            <img alt="" />
+                        <div class="block" v-for="(item, index) in files" :key="index" @click="handleClick(item)">
+                            <img :src="item.src" alt="" />
                             <div class="detail">
                                 <div class="detail-title">{{ item.title }}</div>
                                 <div class="detail-description">{{ item.description }}</div>
-                                <div class="detail-date">登记日期：2020年06月28日</div>
+                                <div class="detail-date" v-if="item.date">{{ item.date }}</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="big" v-if="big.show" @click="big.show = false">
+            <img :src="big.src" height="80%" />
+        </div>
+        <FooterDom :item="result" />
     </div>
 </template>
 
 <script>
 import NavDom from '@/self-components/nav'
 import Logo from '@/self-components/logo'
+import FooterDom from '@/self-components/footer'
 
 export default {
     name: 'PAGE_CPMPANY_SENIORITY',
     components: {
 		NavDom,
         Logo,
+        FooterDom
     },
     data() {
         return {
@@ -100,6 +66,8 @@ export default {
             height: 0,
             current: 1,
             swiperOptions: {
+                loop : true,
+                autoplay: true,
                 initialSlide: 4,
                 effect : 'coverflow',
                 slidesPerView: 5,
@@ -109,7 +77,7 @@ export default {
                     stretch: 10,
                     depth: 60,
                     modifier: 3,
-                    slideShadows : true
+                    slideShadows : false
                 },
                 pagination: {
                     el: '.swiper-pagination',
@@ -117,52 +85,113 @@ export default {
             },
             files: [
                 {
-                    title:'资质文件名称',
-                    description: '打我打发大水克利夫兰撒旦教安东老街安物流快递见风使舵大武当阿斯利康的紧凑型车V型连裤袜到家啦我就打阿瓦漏打卡',
-                    date: '2021年01月05日'
+                    title:'计算机软件著作权登记证书',
+                    description: '根据《计算机软件保护条例》和《计算机软件著作权登记办法》的规定，经中国版权保护中心审核，对以上事项予以登记。登记号：2020SR0681337',
+                    date: '2020年06月28日',
+                    src: require('../../assets/company/1.jpg')
                 },
                 {
-                    title:'资质文件名称',
-                    description: '打我打发大水克利夫兰撒旦教安东老街安物流快递见风使舵大武当阿斯利康的紧凑型车V型连裤袜到家啦我就打阿瓦漏打卡',
-                    date: '2021年01月05日'
+                    title:'计算机软件著作权登记证书',
+                    description: '根据《计算机软件保护条例》和《计算机软件著作权登记办法》的规定，经中国版权保护中心审核，对以上事项予以登记。登记号：2020SR0681337',
+                    date: '2021年06月28日',
+                    src: require('../../assets/company/2.jpg')
                 },
                 {
-                    title:'资质文件名称',
-                    description: '打我打发大水克利夫兰撒旦教安东老街安物流快递见风使舵大武当阿斯利康的紧凑型车V型连裤袜到家啦我就打阿瓦漏打卡',
-                    date: '2021年01月05日'
+                    title:'CRETIFICATE OF CONFORMITY',
+                    description: 'The EUT described above has been tested by us with the listed standards according to the Council Directive 2014/30/EU ...',
+                    date: '2019年09月17日',
+                    src: require('../../assets/company/3.jpg')
                 },
                 {
-                    title:'资质文件名称',
-                    description: '打我打发大水克利夫兰撒旦教安东老街安物流快递见风使舵大武当阿斯利康的紧凑型车V型连裤袜到家啦我就打阿瓦漏打卡',
-                    date: '2021年01月05日'
+                    title:'CRETIFICATE OF CONFORMITY',
+                    description: 'The EUT described above has been tested by us with the listed standards according to the Council Directive 2014/30/EU ...',
+                    date: '2019年09月17日',
+                    src: require('../../assets/company/4.jpg')
                 },
                 {
-                    title:'资质文件名称',
-                    description: '打我打发大水克利夫兰撒旦教安东老街安物流快递见风使舵大武当阿斯利康的紧凑型车V型连裤袜到家啦我就打阿瓦漏打卡',
-                    date: '2021年01月05日'
+                    title:'外观设计专利证书',
+                    description: '本外观设计经过本局依照中华人民共和国专利法进行初步审查，决定授予专利权，颁发证书并在专利登记簿上予以登记...',
+                    date: '2017年05月24日',
+                    src: require('../../assets/company/5.png')
                 },
                 {
-                    title:'资质文件名称',
-                    description: '打我打发大水克利夫兰撒旦教安东老街安物流快递见风使舵大武当阿斯利康的紧凑型车V型连裤袜到家啦我就打阿瓦漏打卡',
-                    date: '2021年01月05日'
+                    title:'实用新型专利证书',
+                    description: '专利号：ZL 2018 2 1298091.1 国家只是产权局依照中华人民共和国专利法经过初步审查，决定授予专利权，颁发实用新型专利证书并在专利登记簿上予以登记...',
+                    date: '2019年04月02日',
+                    src: require('../../assets/company/6.png')
                 },
                 {
-                    title:'资质文件名称',
-                    description: '打我打发大水克利夫兰撒旦教安东老街安物流快递见风使舵大武当阿斯利康的紧凑型车V型连裤袜到家啦我就打阿瓦漏打卡',
-                    date: '2021年01月05日'
+                    title:'实用新型专利证书',
+                    description: '专利号：ZL 2018 2 1263502.3 国家只是产权局依照中华人民共和国专利法经过初步审查，决定授予专利权，颁发实用新型专利证书并在专利登记簿上予以登记...',
+                    date: '2019年01月25日',
+                    src: require('../../assets/company/7.png')
                 },
                 {
-                    title:'资质文件名称',
-                    description: '打我打发大水克利夫兰撒旦教安东老街安物流快递见风使舵大武当阿斯利康的紧凑型车V型连裤袜到家啦我就打阿瓦漏打卡',
-                    date: '2021年01月05日'
-                }
-            ]
+                    title:'实用新型专利证书',
+                    description: '专利号：ZL 2018 2 1376780.X 国家只是产权局依照中华人民共和国专利法经过初步审查，决定授予专利权，颁发实用新型专利证书并在专利登记簿上予以登记...',
+                    date: '2019年04月02日',
+                    src: require('../../assets/company/8.png')
+                },
+                {
+                    title:'外观设计专利证书',
+                    description: '专利号：ZL 2016 3 0630308.4 本外观设计经过本局依照中华人民共和国专利法进行初步审查，决定授予专利权，颁发证书并在专利登记簿上予以登记...',
+                    date: '2017年05月24日',
+                    src: require('../../assets/company/9.png')
+                },
+                {
+                    title:'检验报告',
+                    description: '电动汽车交流充电桩',
+                    src: require('../../assets/company/10.png')
+                },
+                {
+                    title:'外观设计专利证书',
+                    description: '专利号：ZL 2018 3 0408491.2 本外观设计经过本局依照中华人民共和国专利法进行初步审查，决定授予专利权，颁发证书并在专利登记簿上予以登记...',
+                    date: '2018年07月27日',
+                    src: require('../../assets/company/11.png')
+                },
+                {
+                    title:'外观设计专利证书',
+                    description: '专利号：ZL 2016 3 0630307.X 本外观设计经过本局依照中华人民共和国专利法进行初步审查，决定授予专利权，颁发证书并在专利登记簿上予以登记...',
+                    date: '2017年07月28日',
+                    src: require('../../assets/company/12.png')
+                },
+                {
+                    title:'检验报告',
+                    description: '电动汽车交流充电桩',
+                    src: require('../../assets/company/13.png')
+                },
+                {
+                    title:'检验报告',
+                    description: 'IDS60K500 直流充电机',
+                    src: require('../../assets/company/14.png')
+                },
+            ],
+            big: {
+                show: false,
+                src: ''
+            }
         }
+    },
+    async asyncData(app) {
+        let result = await app.$axios.get('/init')
+        let menu = await app.$axios.get('/menus')
+		menu = menu.data.data
+        result = result.data.data
+		return { result, menu }
     },
     mounted() {
 		this.width = document.documentElement.clientWidth
         this.height = document.documentElement.clientHeight
-	},
+    },
+    methods: {
+        /**
+         * 点击放大
+         */
+        handleClick(item) {
+            this.big.src = item.src
+            this.big.show = true
+        }
+    }
 }
 </script>
 
@@ -190,7 +219,6 @@ export default {
         height: 100%;
     }
     .block {
-        background-color: #ccc;
         color: #fff;
         text-align: center;
         line-height: 3.5rem;
@@ -235,6 +263,10 @@ export default {
             padding-left: .05rem;
             color: #666F7E;
             .detail-title {
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
                 font-size: .2rem;
             }
             .detail-description {
@@ -249,5 +281,25 @@ export default {
             }
         }
     }
+}
+.big {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999999;
+    background-color: rgba(0,0,0,.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: show .3s;
+}
+@keyframes big {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {}
 }
 </style>

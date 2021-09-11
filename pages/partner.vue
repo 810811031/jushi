@@ -1,6 +1,6 @@
 <template>
     <div class="container" :style="{ height: height + 'px' }">
-        <NavDom :current="3" white mask />
+        <NavDom :current="3" white mask :menu="menu" />
         <Logo dark />
         <div class="content">
             <div class="left">
@@ -20,15 +20,16 @@
                         <div class="unit">{{ item.unit }}</div>
                     </div>
                     <div class="input last">
-                        <p class="descript">* 这是建议说明</p>
+                        <p class="descript">* 请填写完整后查看收益</p>
                     </div>
                 </div>
-                <div class="start">模拟收益</div>
+                <div class="start" @click="handleClick">模拟收益</div>
                 <div class="charts">
                     <div id="charts" ref="charts"></div>
                 </div>
             </div>
         </div>
+        <FooterDom :item="result" />
     </div>
 </template>
 
@@ -36,12 +37,14 @@
 import NavDom from '@/self-components/nav'
 import Logo from '@/self-components/logo'
 import * as echarts from 'echarts'
+import FooterDom from '@/self-components/footer'
 
 export default {
     name: 'PAGE_PARTNER',
     components: {
 		NavDom,
         Logo,
+        FooterDom
     },
     data() {
         return {
@@ -81,7 +84,30 @@ export default {
 		this.height = document.documentElement.clientHeight
         this.initCharts()
     },
+    head () {
+        return {
+            title: '举视合伙人',
+            meta: [
+                    { hid: 'description', name: 'description', content: '充电站城市合伙人' },
+                    { hid: 'keywords', name: 'keywords', content: '举视合伙人' },  
+                ]
+        }
+    },
+    async asyncData(app) {
+        let result = await app.$axios.get('/init')
+        let menu = await app.$axios.get('/menus')
+		menu = menu.data.data
+		result = result.data.data
+		return { result, menu }
+	},
     methods: {
+        handleClick() {
+            let result = false
+            this.inputGroups.forEach(item => {
+                if (item.value == '') result = true
+            })
+            if (result) return alert('请填写完整后查看结果')
+        },
         /**
          * 点击方块获取输入框光标
          * @param { number } index 当前点击的下角标

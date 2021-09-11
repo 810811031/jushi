@@ -1,6 +1,6 @@
 <template>
     <div class="container"  :style="{ height: height + 'px' }">
-        <NavDom :current="5" white mask />
+        <NavDom :current="5" white mask :menu="menu" />
         <Logo dark />
         <div class="content">
             <div class="left">
@@ -19,10 +19,10 @@
                     <div class="companyInfo">
                         <div class="block">
                             <p>公司总部：举视(上海)新能源科技有限公司</p>
-                            <p>联 系 人：穆经理</p>
-                            <p>联系电话: 19951723459</p>
+                            <p>联  系  人：穆经理</p>
+                            <p>联系电话: 19951723459 </p>
                             <p>销售热线: 021-59793951</p>
-                            <p>联系地址:上海市青浦区华新镇华隆路1777号E通世界D幢</p>
+                            <p>联系地址: 上海市青浦区华新镇华隆路1777号E通世界D幢</p>
                         </div>
                         <div class="block">
                             <p>生产基地：举视(江苏)新能源设备制造有限公司</p>
@@ -41,47 +41,83 @@
                     </div>
                     <div class="contantUs-content">
                         <div class="triangle" :style="{ left: current * 1.63 + (current - 1) * .39 - .9 + 'rem' }"></div>
-                        <div class="block">
-                            <p>生产基地：举视(江苏)新能源设备制造有限公司</p>
-                            <p>联 系 人：穆先生</p>        
-                            <p>联系电话：19951723459</p>
-                            <p>服务热线：0512-57920398</p>
-                            <p>联系地址：江苏省苏州市昆山市千灯镇季广路188号</p>
-                        </div>
-                        <div class="block">
-                            <p>生产基地：举视(江苏)新能源设备制造有限公司</p>
-                            <p>联 系 人：穆先生</p>        
-                            <p>联系电话：19951723459</p>
-                            <p>服务热线：0512-57920398</p>
-                            <p>联系地址：江苏省苏州市昆山市千灯镇季广路188号</p>
+                        <div class="block" style="width: 100%">
+                            <p v-for="(item, index) in base[current - 1]" :key="index">{{ item }}</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <FooterDom :item="result" />
     </div>
 </template>
 
 <script>
 import NavDom from '@/self-components/nav'
 import Logo from '@/self-components/logo'
+import FooterDom from '@/self-components/footer'
 
 export default {
     name: 'PAGE_CPMPANY_SENIORITY',
     components: {
 		NavDom,
         Logo,
+        FooterDom
     },
     data() {
         return {
             width: 0,
             height: 0,
-            current: 1
+            current: 1,
+            base: [
+                [   
+                    '武汉分公司',
+                    '举视（武汉）新能源科技有限公司',
+                    '联系人: 拓经理',
+                    '办公电话：027-87002447',
+                    '联系地址: 武汉东湖新技术开发区高新大道999号未来科技城海外人才大楼A座5楼521室'
+                ],
+                [
+                    '兰州分公司',
+                    '举视（上海）新能源科技有限公司甘肃分公司',
+                    '联系人：魏存强',
+                    '电话：17789612522',
+                    '地址：甘肃省兰州市城关区雁滩路3884号509室'
+                ],
+                [
+                    '深圳分公司',
+                    '举视（深圳）新能源科技有限公司',
+                    '联系人：周本海',
+                    '电话：13266779968',
+                    '地址：深证市宝安区沙井大王山广场中心楼6楼'
+                ],
+                [
+                    '安徽分公司',
+                    '安徽举视新能源科技有限公司',
+                    '联系人：冯军（总经理）',
+                    '电话：15375133589',
+                    '地址：安徽省阜阳市临沂商城一期A栋501室'
+                ],
+                [
+                    '河北分公司',
+                    '举视（上海）新能源科技有限公司河北分公司',
+                    '联系人: 陈洋',
+                    '电话：13292217796',
+                    '地址: 河北省石家庄市长安区长丰街道北二环路保利花园h3-2412室'
+                ]
+            ]
         }
     },
     mounted() {
 		this.width = document.documentElement.clientWidth
 		this.height = document.documentElement.clientHeight
+    },
+    async asyncData(app) {
+        let result = await app.$axios.get('/init')
+        let menu = await app.$axios.get('/menus')
+		menu = menu.data.data
+        result = result.data.data
+		return { result, menu }
     },
     methods: {
         /**

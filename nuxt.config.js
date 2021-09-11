@@ -1,8 +1,9 @@
 export default {
 	loading: {
-		color: 'blue',
-		height: '5px'
+		color: 'green',
+		height: '2px'
 	},
+	// loading: '~/components/LoadingBar.vue',
 	server: {
 		host: '192.168.3.141',
 		port: 3000
@@ -16,18 +17,18 @@ export default {
 		meta: [
 			{ charset: 'utf-8' },
 			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
-			{ hid: 'description', name: 'description', content: '' },
-			{ hid: 'keywords', name: 'keywords', content: ''},
+			{ hid: 'description', name: 'description', content: '举视新能源官网' },
+			{ hid: 'keywords', name: 'keywords', content: '举视新能源'},
 			{ name: 'author', content: 'allen' }
 		],
 		link: [
-			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-		]
+			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+		],
 	},
 
 	// Global CSS: https://go.nuxtjs.dev/config-css
 	css: [
-		{ src: '@/assets/css/normal.css' }
+		'@/assets/css/normal.css'
 	],
 
 	// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -56,7 +57,7 @@ export default {
 	},
 	proxy: {
         '/api': {
-			target: 'http://www.sowellchina.com/website-api',
+			target: 'http://test-web.sowellchina.com/api',
 			pathRewrite: {
 				'^/api': '/',
 				changeOrigin: true

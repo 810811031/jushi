@@ -4,15 +4,15 @@
         @mouseleave="handleChangeStyle(false)"
     >
         <nuxt-link 
-            :to="{ name: 'productDetail', query: { id: 1 } }" >
+            :to="`/productDetail/${ info.ProductID }`" >
             <div class="arc-wrapper">
                 <div class="arc" ref="box" :style="{ 'background-color': bg }"></div>
             </div>
             <div class="content">
-                <p :class="['title', { 'white': bg }]">举视新能源</p>
-                <p :class="['name', { 'white': bg }]">120KW落地式直流充电桩</p>
-                <p class="type" :style="{ color: color }">JSDC120/750/WA/2/A/IE</p>
-                <img :class="['img', { 'animate1': animate == 1, 'animate2': animate == 2 }]" :src="require('@/assets/images/demo.png')" />
+                <p :class="['title', { 'white': bg }]">{{ info.Title }}</p>
+                <p :class="['name', { 'white': bg }]">{{ info.SubTitle }}</p>
+                <p class="type" :style="{ color: color }">{{ info.Model }}</p>
+                <img :class="['img', { 'animate1': animate == 1, 'animate2': animate == 2 }]" :src="info.Cover" />
             </div>
         </nuxt-link>
     </div>
@@ -34,12 +34,21 @@ export default {
         color: {
             type: String,
             default: ''
+        },
+        info: {
+            type: Object,
+            default: function () {
+                return {}
+            }
         }
     },
     data() {
         return {
             enter: false,
         }
+    },
+    created() {
+        console.log(this.info)
     },
     methods: {
         handleChangeStyle(type) {

@@ -1,8 +1,10 @@
 <template>
-    <nuxt-link to="/">
-        <img v-if="dark" :src="require('@/assets/images/logo-grey@2x.png')" :class="['logo', { 'active': active }]" />
-        <img v-else :src="require('@/assets/images/logo@2x.png')" :class="['logo', { 'active': active }]" />
-    </nuxt-link>
+    <div @click="handleClick">
+        <nuxt-link to="/">
+            <img v-if="dark" :src="require('@/assets/images/logo-grey@2x.png')" :class="['logo', { 'active': active }]" />
+            <img v-else :src="require('@/assets/images/logo@2x.png')" :class="['logo', { 'active': active }]" />
+        </nuxt-link>
+    </div>
 </template>
 
 <script>
@@ -16,6 +18,11 @@ export default {
         active: {
             type: Boolean,
             default: false
+        }
+    },
+    methods: {
+        handleClick() {
+            window.sessionStorage.setItem('Num', 0)
         }
     }
 }
