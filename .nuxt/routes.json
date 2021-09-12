@@ -2,85 +2,85 @@
   {
     "name": "cloudcenter",
     "path": "/cloudcenter",
-    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\cloudcenter.vue",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\cloudcenter.vue",
     "chunkName": "pages/cloudcenter"
   },
   {
     "name": "custom",
     "path": "/custom",
-    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\custom.vue",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\custom.vue",
     "chunkName": "pages/custom"
   },
   {
     "name": "partner",
     "path": "/partner",
-    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\partner.vue",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\partner.vue",
     "chunkName": "pages/partner"
   },
   {
     "name": "product",
     "path": "/product",
-    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\product.vue",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\product.vue",
     "chunkName": "pages/product"
   },
   {
     "name": "company-contantUs",
     "path": "/company/contantUs",
-    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\company\\\\contantUs.vue",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\company\\\\contantUs.vue",
     "chunkName": "pages/company/contantUs"
   },
   {
     "name": "company-honor",
     "path": "/company/honor",
-    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\company\\\\honor.vue",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\company\\\\honor.vue",
     "chunkName": "pages/company/honor"
   },
   {
     "name": "company-introduction",
     "path": "/company/introduction",
-    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\company\\\\introduction.vue",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\company\\\\introduction.vue",
     "chunkName": "pages/company/introduction"
   },
   {
     "name": "company-partner",
     "path": "/company/partner",
-    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\company\\\\partner.vue",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\company\\\\partner.vue",
     "chunkName": "pages/company/partner"
   },
   {
     "name": "company-recruit",
     "path": "/company/recruit",
-    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\company\\\\recruit.vue",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\company\\\\recruit.vue",
     "chunkName": "pages/company/recruit"
   },
   {
     "name": "company-seniority",
     "path": "/company/seniority",
-    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\company\\\\seniority.vue",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\company\\\\seniority.vue",
     "chunkName": "pages/company/seniority"
   },
   {
     "name": "customDetail-id",
     "path": "/customDetail/:id?",
-    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\customDetail\\\\_id.vue",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\customDetail\\\\_id.vue",
     "chunkName": "pages/customDetail/_id"
   },
   {
     "name": "productDetail-id",
     "path": "/productDetail/:id?",
-    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\productDetail\\\\_id.vue",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\productDetail\\\\_id.vue",
     "chunkName": "pages/productDetail/_id"
   },
   {
     "name": "programme-id",
     "path": "/programme/:id?",
-    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\programme\\\\_id.vue",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\programme\\\\_id.vue",
     "chunkName": "pages/programme/_id"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\next-vue\\\\office\\\\pages\\\\index.vue",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\index.vue",
     "chunkName": "pages/index"
   }
 ]
