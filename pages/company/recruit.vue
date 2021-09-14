@@ -6,8 +6,8 @@
             <div class="left">
                 <div class="inside">
                     <nuxt-link to="introduction"><p>公司简介<span></span></p></nuxt-link>
-                    <nuxt-link to="seniority"><p>公司资质<span></span></p></nuxt-link>
-                    <nuxt-link to="honor"><p>公司荣誉<span></span></p></nuxt-link>
+                    <nuxt-link to="seniority"><p>公司荣誉<span></span></p></nuxt-link>
+                    <nuxt-link to="honor"><p>发展历程<span></span></p></nuxt-link>
                     <p class="active">人才招聘<span></span></p>
                     <nuxt-link to="contantUs"><p>联系我们<span></span></p></nuxt-link>
                     <nuxt-link to="partner"><p>合作伙伴<span></span></p></nuxt-link>
@@ -21,8 +21,8 @@
                     在人才的选拔上，企业搭建人才流动的内部平台，营造内部人才市场，为员工畅通职业发展渠道。</p>
                     <span class="_btn" @click="handleLeft"><img src="../../assets/images/left.png" /></span>
                     <span class="_btn" @click="handleRight"><img src="../../assets/images/right.png" /></span>
-                    <div class="tabs" ref="tabs">
-                        <div class="tabs_wrapper">
+                    <div class="tabs" >
+                        <div class="tabs_wrapper" ref="tabs">
                              <div @click="handleSelectCompany(index + 1)"
                                 v-for="(item, index) in list" :key="index" 
                                 :ref="`tab${ index + 1 }`" :class="['tab', { 'active': current == index + 1 }]">{{ item.Title }}</div>
@@ -75,10 +75,10 @@ export default {
 	},
     methods: {
         handleLeft() {
-            this.$refs.tabs.scrollTo(this.$refs.tabs.offsetLeft + 10, 0)
+            this.$refs.tabs.scrollTo(this.$refs.tabs.scrollLeft - 150, 0)
         },
         handleRight() {
-            this.$refs.tabs.scrollTo(this.$refs.tabs.offsetLeft - 10, 0)
+            this.$refs.tabs.scrollTo(this.$refs.tabs.scrollLeft + 150, 0)
         },
         /**
          * 选择当前的公司详细信息
@@ -117,10 +117,12 @@ export default {
     margin-top: .7rem;
     box-sizing: border-box;
     position: relative;
-    overflow-x: auto;
     .tabs_wrapper {
         width: auto;
+        overflow-x: auto;
         white-space: nowrap;
+        overflow-y: hidden;
+        scroll-behavior:smooth;
     }
     .tab {
         width: 1.6rem;

@@ -6,8 +6,8 @@
             <div class="left">
                 <div class="inside">
                     <nuxt-link to="introduction"><p>公司简介<span></span></p></nuxt-link>
-                    <nuxt-link to="seniority"><p>公司资质<span></span></p></nuxt-link>
-                    <p class="active">公司荣誉<span></span></p>
+                    <nuxt-link to="seniority"><p>公司荣誉<span></span></p></nuxt-link>
+                    <p class="active">发展历程<span></span></p>
                     <nuxt-link to="recruit"><p>人才招聘<span></span></p></nuxt-link>
                     <nuxt-link to="contantUs"><p>联系我们<span></span></p></nuxt-link>
                     <nuxt-link to="partner"><p>合作伙伴<span></span></p></nuxt-link>
@@ -69,6 +69,7 @@ export default {
     },
     methods: {
         handleShow() {
+            return
             this.show = true
         }
     }

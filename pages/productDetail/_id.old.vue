@@ -1,5 +1,5 @@
 <template>
-    <div class="productDetail">
+    <div class="productDetail" :style="{ height: height + 'px' }">
         <NavDom :current="1" white mask :menu="menu" />
         <div class="left">
             <swiper :options="swiperOptions" class="swiper-container" id="swiper" :style="{ height: height + 'px' }">
@@ -12,24 +12,10 @@
         </div>
         <div class="right">
             <div class="back" @click="handleBack"><img src="../../assets/images/back.png">返回列表</div>
-            <div class="tabs" v-if="product.Series.length > 1">
-                <div class="tabs-inside" ref="outside">
-                    <div @click="current = index"
-                        :class="['_block', { _active: current == index }]" 
-                        v-for="(item, index) in product.Series" :key="index">
-                        {{ item.SeriesName }}
-                    </div>
-                </div>
-                <span class="btn _left" @click="handleMove(1)">
-                    <img src="../../assets/images/left_green.png" />
-                </span>
-                <span class="btn _right" @click="handleMove(2)">
-                    <img src="../../assets/images/right_green.png" />
-                </span>
-            </div>
             <div class="title">{{ product.Title }}</div>
-            <div class="sub-title">{{ product.Series[current].SeriesName }}</div>
-            <p class="discription" v-html="product.Series[current].Info"></p>
+            <div class="sub-title">{{ product.SubTitle }}</div>
+            <div class="robot-no">{{ product.Model }}</div>
+            <p class="discription" v-html="product.Info"></p>
             <div class="buy-wrapper">
                 <span class="params" @click="handleShow">产品参数</span>
                 <span class="buy"  @mouseenter="show = true">去采购</span>
@@ -39,13 +25,46 @@
                 </div>
             </div>
         </div>
+        <FooterDom :item="result" />
         <div class="mask" v-if="mask" @click="handleClose"></div>
         <div class="leftBlock" :style="{ right: right ? 0 : '-50%' }">
             <div class="back" @click="handleClose"><img src="../../assets/images/back.png">返回</div>
             <div class="title">产品参数</div>
-            <div class="row" v-for="(item, index) in product.Series[current].Param" :key="index">
-                <span class="_label">{{ item.Key }}</span>
-                <span class="_content">{{ item.Val }}</span>
+            <div class="row">
+                <span class="_label">产品名称</span>
+                <span class="_content">{{ product.Title }}</span>
+            </div>
+            <div class="row">
+                <span class="_label">型号</span>
+                <span class="_content">{{ product.Model }}</span>
+            </div>
+            <div class="row">
+                <span class="_label">功率</span>
+                <span class="_content">{{ product.Power }}</span>
+            </div>
+            <div class="row">
+                <span class="_label">尺寸</span>
+                <span class="_content">{{ product.Size }}</span>
+            </div>
+            <div class="row">
+                <span class="_label">计量精度</span>
+                <span class="_content">{{ product.MeasurementAccuracy }}</span>
+            </div>
+            <div class="row">
+                <span class="_label">安装方式</span>
+                <span class="_content">{{ product.InstallMethod }}</span>
+            </div>
+            <div class="row">
+                <span class="_label">技术指标</span>
+                <span class="_content" v-html="product.TechnicalIndex.replace(/\n/g, '<br />')"></span>
+            </div>
+            <div class="row">
+                <span class="_label">应用场景</span>
+                <span class="_content" v-html="product.ApplicationScene.replace(/\n/g, '<br />')">{{ product.ApplicationScene }}</span>
+            </div>
+            <div class="row">
+                <span class="_label">充电场景</span>
+                <span class="_content" v-html="product.ChargingScene.replace(/\n/g, '<br />')">{{ product.ChargingScene }}</span>
             </div>
             <span class="buy" @mouseenter="show1 = true">去采购
                 <div class="shop" v-if="show1"  @mouseleave="show1 = false">
@@ -55,9 +74,8 @@
             </span>
             
         </div>
-
         <FooterDom :item="result" />
-    </div>
+    </div>    
 </template>
 
 <script>
@@ -69,36 +87,6 @@ export default {
     components: {
         NavDom,
         FooterDom
-    },
-    data() {
-        return {
-            width: 0,
-            height: 0,
-            current: 0,
-            show: false,
-            mask: false,
-            show: false,
-            show1: false,
-            right: false,
-            swiperOptions: {
-                initialSlide: 1,
-                loop: true,
-                autoplay: true,
-                effect : 'coverflow',
-                slidesPerView: 3,
-                centeredSlides: true,
-                coverflowEffect: {
-                    rotate: 0,
-                    stretch: 10,
-                    depth: 150,
-                    modifier: 3,
-                    slideShadows : false
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                },
-            }
-        }
     },
     head () {
         return {
@@ -121,8 +109,37 @@ export default {
         })
 		return { result, product, menu }
     },
+    data() {
+        return {
+            id: '',
+            width: 0,
+            height: 0,
+            show: false,
+            show1: false,
+            mask: false,
+            right: false,
+            swiperOptions: {
+                initialSlide: 1,
+                loop: true,
+                autoplay: true,
+                effect : 'coverflow',
+                slidesPerView: 3,
+                centeredSlides: true,
+                coverflowEffect: {
+                    rotate: 0,
+                    stretch: 10,
+                    depth: 150,
+                    modifier: 3,
+                    slideShadows : false
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+            }
+        }
+    },
     mounted() {
-        this.width = document.documentElement.clientWidth
+		this.width = document.documentElement.clientWidth
         this.height = document.documentElement.clientHeight
         let that = this
         document.body.click = function () {
@@ -133,19 +150,18 @@ export default {
         }
     },
     methods: {
-        /**
-         * 点击滚动条
-         * @param { number } type
-         */
-        handleMove(type) {
-            if (type == 1) {
-                this.$refs.outside.scrollTo(this.$refs.outside.scrollLeft - 150, 0)
-            } else {
-                this.$refs.outside.scrollTo(this.$refs.outside.scrollLeft + 150, 0)
-            }
-        },
         handleBack() {
             this.$router.back()
+        },
+        handleTo(type) {
+            if (this.product.Tmall.indexOf('http:') == -1) {
+                return alert('天猫商城地址有误')
+            } else if (this.product.Taobao.indexOf('http:') == -1) {
+                return alert('举视商城地址有误')
+            }
+
+            type == 1 && window.open(this.product.Tmall)
+            type == 2 && window.open(this.product.Taobao)
         },
         handleShow() {
             this.mask = true
@@ -154,19 +170,7 @@ export default {
         handleClose() {
             this.mask = false
             this.right = false
-            this.show = false
-            this.show1 = false
-        },
-        handleTo(type) {
-            if (this.product.Series[this.current].Tmall.indexOf('http:') == -1) {
-                return alert('天猫商城地址有误')
-            } else if (this.product.Series[this.current].Taobao.indexOf('http:') == -1) {
-                return alert('举视商城地址有误')
-            }
-
-            type == 1 && window.open(this.product.Series[this.current].Tmall)
-            type == 2 && window.open(this.product.Series[this.current].Taobao)
-        },
+        }
     }
 }
 </script>
@@ -209,68 +213,6 @@ export default {
             }
             cursor: pointer;
         }
-        .tabs {
-            width: calc(100% - 1rem);
-            height: .4rem;
-            margin-top: .2rem;
-            background-color: #fff;
-            box-sizing: border-box;
-            position: relative;
-            .tabs-inside {
-                width: calc(100% - .8rem);
-                height: .39rem;
-                margin: 0 auto;
-                overflow-x: auto;
-                white-space: nowrap;
-                scroll-behavior:smooth;
-                ._block {
-                    vertical-align: top;
-                    display: inline-block;
-                    box-sizing: border-box;
-                    padding: .08rem .1rem;
-                    background-color: #F1FDF6;
-                    color: #5AAF7C;
-                    font-size: .14rem;
-                    line-height: .2rem;
-                    border: 1px solid #5AAF7C;
-                    border-radius: .05rem;
-                    margin-right: .2rem;
-                    cursor: pointer;
-                }
-                ._active {
-                    background-color: #399F62;
-                    border: none;
-                    color: #fff;
-                }
-        }
-            .btn {
-                position: absolute;
-                display: inline-flex;
-                justify-content: center;
-                align-items: center;
-                width: .2rem;
-                height: .4rem;
-                background-color: #F1FDF6;
-                box-sizing: border-box;
-                border: 1px solid #5AAF7C;
-                border-radius: .04rem;
-                cursor: pointer;
-                img {
-                    width: .2rem;
-                }
-                &:active {
-                    opacity: .8;
-                }
-            }
-            ._left {
-                top: 0;
-                left: 0;
-            }
-            ._right {
-                top: 0;
-                right: 0;
-            }
-        }
         .title {
             color: #656E7D;
             margin-top: .2rem;
@@ -281,7 +223,6 @@ export default {
             font-size: .16rem;
             color: #656E7D;
             line-height: .22rem;
-            margin-top: .1rem;
         }
         .robot-no {
             font-size: .14rem;

@@ -16,6 +16,7 @@ const _ec5222ee = () => interopDefault(import('..\\pages\\company\\recruit.vue' 
 const _e6ffb9ee = () => interopDefault(import('..\\pages\\company\\seniority.vue' /* webpackChunkName: "pages/company/seniority" */))
 const _bded9740 = () => interopDefault(import('..\\pages\\customDetail\\_id.vue' /* webpackChunkName: "pages/customDetail/_id" */))
 const _639e2242 = () => interopDefault(import('..\\pages\\productDetail\\_id.vue' /* webpackChunkName: "pages/productDetail/_id" */))
+const _747ee00a = () => interopDefault(import('..\\pages\\productDetail\\_id.old.vue' /* webpackChunkName: "pages/productDetail/_id.old" */))
 const _7b5cccc6 = () => interopDefault(import('..\\pages\\programme\\_id.vue' /* webpackChunkName: "pages/programme/_id" */))
 const _73f2584c = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -78,6 +79,10 @@ export const routerOptions = {
     path: "/productDetail/:id?",
     component: _639e2242,
     name: "productDetail-id"
+  }, {
+    path: "/productDetail/:id.old?",
+    component: _747ee00a,
+    name: "productDetail-id.old"
   }, {
     path: "/programme/:id?",
     component: _7b5cccc6,

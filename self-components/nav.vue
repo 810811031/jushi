@@ -1,6 +1,14 @@
 <template>
     <div>
         <div :class="['menu', { 'menu-active': active, 'white': white }]">
+
+            <nuxt-link to="/product" v-if="white">
+                <div class="white_product" >
+                    <span class="_center">产品中心</span>
+                    <span class="_line"></span>
+                </div>
+            </nuxt-link>
+
             <div :class="['background']">
                 <transition 
                     enter-active-class="animated bounceIn" 
@@ -12,7 +20,7 @@
 			        leave-active-class="animated bounceOut">
                     <img v-if="!active" class="open-menu" style="animation-duration: 200ms;" @click="handleTrigger" :src="require('@/assets/images/menu@2x.png')" />
                 </transition>
-            
+
                 <div class="harf aboutUs" v-show="active" 
                     ref="block"
                     @touchmove="handleTouchMove" 
@@ -248,6 +256,39 @@ export default {
         top: 0;
         z-index: 999;
         cursor: pointer;
+    }
+    .white_product {
+        width: .8rem;
+        font-size: .22rem;
+        color: #656E7D;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 999;
+        cursor: pointer;
+        transform: translate(-50%, -50%);
+        ._center {
+            width: 30px;
+            text-align: center;
+        }
+        ._line {
+            display: inline-block;
+            width: .28rem;
+            height: .04rem;
+            background-color: #E8EBF0;
+            position: absolute;
+            left: -.14rem;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: .02rem;
+            transition: left .1s linear;
+        }
+        &:hover ._line{
+            left: -.2rem
+        }
     }
     .background {
         width: 100%;

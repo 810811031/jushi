@@ -6,21 +6,21 @@
             <div class="left">
                 <div class="inside">
                     <nuxt-link to="introduction"><p>公司简介<span></span></p></nuxt-link>
-                    <p class="active">公司资质<span></span></p>
-                    <nuxt-link to="honor"><p>公司荣誉<span></span></p></nuxt-link>
+                    <p class="active">公司荣誉<span></span></p>
+                    <nuxt-link to="honor"><p>发展历程<span></span></p></nuxt-link>
                     <nuxt-link to="recruit"><p>人才招聘<span></span></p></nuxt-link>
                     <nuxt-link to="contantUs"><p>联系我们<span></span></p></nuxt-link>
                     <nuxt-link to="partner"><p>合作伙伴<span></span></p></nuxt-link>
                 </div>
             </div>
             <div class="right">
-                <div class="title alignCenter">公司资质</div>
+                <div class="title alignCenter">公司荣誉</div>
                 <div class="html">
-                    <div class="sub-title">公司口号文案巴拉巴拉巴拉巴啦巴拉巴拉</div>
+                    <div class="sub-title">举视新能源·电动汽车充电服务全球供应商</div>
                     <div class="__swiper__wrapper__">
                         <swiper class="swiper-container" id="swiper" :options="swiperOptions" ref="mySwiper">
                             <swiper-slide v-for="(item, index) in files" :key="index">
-                                <div class="block"  @click="handleClick">
+                                <div class="block"  @click="handleClick(item)">
                                     <img :src="item.src" style="width: 100%; height: 100%;" />
                                 </div>
                             </swiper-slide>

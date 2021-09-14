@@ -3,37 +3,17 @@ export default [
         year: 2011,
         array: [
             {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
+                title: '董事长，穆...',
+                descript: '董事长，穆大勇先生开启创业生涯 '
             },
-            {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
-            },
-            {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
-            }
         ]
     },
     {
-        year: 2015,
+        year: 2013,
         array: [
             {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
-            },
-            {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
-            },
-            {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
-            },
-            {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
+                title: '5月，穆大勇...',
+                descript: '5月，穆大勇先生成为为吉利汽车二级供应商，接触充电桩'
             }
         ]
     },
@@ -41,28 +21,25 @@ export default [
         year: 2016,
         array: [
             {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
+                title: '8月29日，举...',
+                descript: '8月29日，举视新能源成立'
             },
             {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
+                title: '12月21日，举...',
+                descript: '12月21日，举视第一款产品“勇视”经过上海电科所检验认证'
+            }
+        ]
+    },
+    {
+        year: 2017,
+        array: [
+            {
+                title: '4月11日，举...',
+                descript: '4月11日，举视（武汉）新能源科技有限公司成立'
             },
             {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
-            },
-            {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
-            },
-            {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
-            },
-            {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
+                title: '5月1日，举...',
+                descript: '5月1日，举视新能源昆山工厂投入使用 '
             }
         ]
     },
@@ -70,24 +47,20 @@ export default [
         year: 2018,
         array: [
             {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
+                title: '3月29日，举...',
+                descript: '3月29日，举视新能源甘肃分公司成立 '
             },
             {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
+                title: '9月18日，举...',
+                descript: '9月18日，举视（江苏）新能源设备制造有限公司成立'
             },
             {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
+                title: '11月12日，I...',
+                descript: '11月12日，ISO9001授予质量认证证书 '
             },
             {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
-            },
-            {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
+                title: '12月13日，举...',
+                descript: '12月13日，举视（深圳）新能源科技有限公司成立'
             }
         ]
     },
@@ -95,70 +68,12 @@ export default [
         year: 2019,
         array: [
             {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
+                title: '4月1日，举视...',
+                descript: '4月1日，举视新能源运营监控平台上线运营'
             },
             {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
-            },
-            {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
-            },
-            {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
-            },
-            {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
-            },
-            {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
-            },
-            {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
-            }
-        ]
-    },
-    {
-        year: 2020,
-        array: [
-            {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
-            },
-            {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
-            },
-            {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
-            },
-            {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
-            }
-        ]
-    },
-    {
-        year: 2021,
-        array: [
-            {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
-            },
-            {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
-            },
-            {
-                title: '荣誉名称',
-                descript: '描述描述描述描述描述描述'
+                title: '5月12日，河...',
+                descript: '5月12日，河北运营公司重组完成，开始运营 '
             }
         ]
     },

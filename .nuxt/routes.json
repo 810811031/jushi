@@ -3,84 +3,105 @@
     "name": "cloudcenter",
     "path": "/cloudcenter",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\cloudcenter.vue",
-    "chunkName": "pages/cloudcenter"
+    "chunkName": "pages/cloudcenter",
+    "_name": "_621d89d2"
   },
   {
     "name": "custom",
     "path": "/custom",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\custom.vue",
-    "chunkName": "pages/custom"
+    "chunkName": "pages/custom",
+    "_name": "_72a49a19"
   },
   {
     "name": "partner",
     "path": "/partner",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\partner.vue",
-    "chunkName": "pages/partner"
+    "chunkName": "pages/partner",
+    "_name": "_eec9fe60"
   },
   {
     "name": "product",
     "path": "/product",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\product.vue",
-    "chunkName": "pages/product"
+    "chunkName": "pages/product",
+    "_name": "_14ccf512"
   },
   {
     "name": "company-contantUs",
     "path": "/company/contantUs",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\company\\\\contantUs.vue",
-    "chunkName": "pages/company/contantUs"
+    "chunkName": "pages/company/contantUs",
+    "_name": "_7461ea04"
   },
   {
     "name": "company-honor",
     "path": "/company/honor",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\company\\\\honor.vue",
-    "chunkName": "pages/company/honor"
+    "chunkName": "pages/company/honor",
+    "_name": "_7f1e2316"
   },
   {
     "name": "company-introduction",
     "path": "/company/introduction",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\company\\\\introduction.vue",
-    "chunkName": "pages/company/introduction"
+    "chunkName": "pages/company/introduction",
+    "_name": "_643d7c42"
   },
   {
     "name": "company-partner",
     "path": "/company/partner",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\company\\\\partner.vue",
-    "chunkName": "pages/company/partner"
+    "chunkName": "pages/company/partner",
+    "_name": "_d51d21da"
   },
   {
     "name": "company-recruit",
     "path": "/company/recruit",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\company\\\\recruit.vue",
-    "chunkName": "pages/company/recruit"
+    "chunkName": "pages/company/recruit",
+    "_name": "_ec5222ee"
   },
   {
     "name": "company-seniority",
     "path": "/company/seniority",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\company\\\\seniority.vue",
-    "chunkName": "pages/company/seniority"
+    "chunkName": "pages/company/seniority",
+    "_name": "_e6ffb9ee"
   },
   {
     "name": "customDetail-id",
     "path": "/customDetail/:id?",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\customDetail\\\\_id.vue",
-    "chunkName": "pages/customDetail/_id"
+    "chunkName": "pages/customDetail/_id",
+    "_name": "_bded9740"
   },
   {
     "name": "productDetail-id",
     "path": "/productDetail/:id?",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\productDetail\\\\_id.vue",
-    "chunkName": "pages/productDetail/_id"
+    "chunkName": "pages/productDetail/_id",
+    "_name": "_639e2242"
+  },
+  {
+    "name": "productDetail-id.old",
+    "path": "/productDetail/:id.old?",
+    "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\productDetail\\\\_id.old.vue",
+    "chunkName": "pages/productDetail/_id.old",
+    "_name": "_747ee00a"
   },
   {
     "name": "programme-id",
     "path": "/programme/:id?",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\programme\\\\_id.vue",
-    "chunkName": "pages/programme/_id"
+    "chunkName": "pages/programme/_id",
+    "_name": "_7b5cccc6"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\Administrator\\\\Desktop\\\\make money\\\\office\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_73f2584c"
   }
 ]
